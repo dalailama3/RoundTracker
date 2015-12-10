@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   after_initialize do
     ensure_session_token
   end
+  has_many :rounds
 
   def reset_session_token!
     self.session_token = SecureRandom::urlsafe_base64

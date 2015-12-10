@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(version: 20151210170601) do
 
   create_table "rounds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date",                   null: false
+    t.string   "course_name",            null: false
+    t.integer  "score",                  null: false
+    t.integer  "total_putts"
+    t.float    "greens_in_regulation"
+    t.float    "fairways_in_regulation"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
