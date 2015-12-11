@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210170601) do
+ActiveRecord::Schema.define(version: 20151211000538) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "rounds", force: :cascade do |t|
     t.date     "date",                   null: false
@@ -22,6 +26,10 @@ ActiveRecord::Schema.define(version: 20151210170601) do
     t.float    "fairways_in_regulation"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id"
+    t.integer  "course_par"
+    t.hstore   "par_hash"
+    t.hstore   "score_hash"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151210170601) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
 end

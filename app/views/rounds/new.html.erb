@@ -1,1 +1,65 @@
-<h1>Rounds</h1>
+<h1>Add Round</h1>
+
+<form action="<%= rounds_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>
+    Date<input type="date" name="round[date]" value="<%= @round.date %>">
+  </label>
+  <label>Course
+    <input type="text" name="round[course_name]" value="<%= @round.course_name %>">
+  </label>
+  <table>
+    <tr>
+      <td>Par</td>
+      <td><input type="number" name="round[hole_one_par]" placeholder="Hole 1"></td>
+      <td><input type="number" name="round[hole_two_par]" placeholder="Hole 2"></td>
+      <td><input type="number" name="round[hole_three_par]" placeholder="Hole 3"></td>
+      <td><input type="number" name="round[hole_four_par]" placeholder="Hole 4"></td>
+      <td><input type="number" name="round[hole_five_par]" placeholder="Hole 5"></td>
+      <td><input type="number" name="round[hole_six_par]" placeholder="Hole 6"></td>
+      <td><input type="number" name="round[hole_seven_par]" placeholder="Hole 7"></td>
+      <td><input type="number" name="round[hole_eight_par]" placeholder="Hole 8"></td>
+      <td><input type="number" name="round[hole_nine_par]" placeholder="Hole 9"></td>
+      <td><input type="number" name="round[hole_ten_par]" placeholder="Hole 10"></td>
+      <td><input type="number" name="round[hole_eleven_par]" placeholder="Hole 11"></td>
+      <td><input type="number" name="round[hole_twelve_par]" placeholder="Hole 12"></td>
+      <td><input type="number" name="round[hole_thirteen_par]" placeholder="Hole 13"></td>
+      <td><input type="number" name="round[hole_fourteen_par]" placeholder="Hole 14"></td>
+      <td><input type="number" name="round[hole_fifteen_par]" placeholder="Hole 15"></td>
+      <td><input type="number" name="round[hole_sixteen_par]" placeholder="Hole 16"></td>
+      <td><input type="number" name="round[hole_seventeen_par]" placeholder="Hole 17"></td>
+      <td><input type="number" name="round[hole_eighteen_par]" placeholder="Hole 18"></td>
+    </tr>
+
+    <tr>
+      <td>Score</td>
+      <td><input type="number" name="round[score1]" placeholder="Hole 1"></td>
+      <td><input type="number" name="round[score2]" placeholder="Hole 2"></td>
+      <td><input type="number" name="round[score3]" placeholder="Hole 3"></td>
+      <td><input type="number" name="round[score4]" placeholder="Hole 4"></td>
+      <td><input type="number" name="round[score5]" placeholder="Hole 5"></td>
+      <td><input type="number" name="round[score6]" placeholder="Hole 6"></td>
+      <td><input type="number" name="round[score7]" placeholder="Hole 7"></td>
+      <td><input type="number" name="round[score8]" placeholder="Hole 8"></td>
+      <td><input type="number" name="round[score9]" placeholder="Hole 9"></td>
+      <td><input type="number" name="round[score10]" placeholder="Hole 10"></td>
+      <td><input type="number" name="round[score11]" placeholder="Hole 11"></td>
+      <td><input type="number" name="round[score12]" placeholder="Hole 12"></td>
+      <td><input type="number" name="round[score13]" placeholder="Hole 13"></td>
+      <td><input type="number" name="round[score14]" placeholder="Hole 14"></td>
+      <td><input type="number" name="round[score15]" placeholder="Hole 15"></td>
+      <td><input type="number" name="round[score16]" placeholder="Hole 16"></td>
+      <td><input type="number" name="round[score17]" placeholder="Hole 17"></td>
+      <td><input type="number" name="round[score18]" placeholder="Hole 18"></td>
+    </tr>
+
+  </table>
+
+  <input type="submit" value="Submit">
+
+
+
+
+
+
+</form>

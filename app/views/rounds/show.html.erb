@@ -1,0 +1,42 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Course</th>
+    <th>Score</th>
+    <th>Par</th>
+  </tr>
+
+  <tr>
+    <td><%= @round.date %></td>
+    <td><%= @round.course_name %></td>
+    <td><%= @round.score %></td>
+    <td><%= @round.course_par %></td>
+  </tr>
+
+</table>
+
+<table border="3px solid">
+  <tr>
+    <td>Par for each hole</td>
+
+    <% @round.par_hash.each do |key, val| %>
+      <td><%= val %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td>Score for each hole</td>
+    <% @round.score_hash.each do |key, val| %>
+      <td><%= val %></td>
+    <% end %>
+  </tr>
+
+  <tr>
+    <td>Differentials</td>
+    <% @diffs.each do |diff| %>
+      <td><%= diff %></td>
+    <% end %>
+  </tr>
+
+</table>
+<br>
+<%= link_to "Rounds", rounds_url %>
