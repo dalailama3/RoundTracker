@@ -11,25 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211000538) do
+ActiveRecord::Schema.define(version: 20151212185552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.hstore   "par_hash",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rounds", force: :cascade do |t|
     t.date     "date",                   null: false
-    t.string   "course_name",            null: false
+    t.integer  "course_id",              null: false
     t.integer  "score",                  null: false
     t.integer  "total_putts"
     t.float    "greens_in_regulation"
     t.float    "fairways_in_regulation"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "user_id"
-    t.integer  "course_par"
-    t.hstore   "par_hash"
     t.hstore   "score_hash"
+    t.integer  "user_id",                null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
     current_user != nil
   end
 
+  def require_login
+    unless logged_in?
+      flash[:errors] = "You must be logged in"
+      redirect_to new_session_url
+    end
+  end
+
+
   def log_in!
     email = params[:user][:email]
     password = params[:user][:password]

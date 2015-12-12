@@ -8,18 +8,20 @@
 
   <tr>
     <td><%= @round.date %></td>
-    <td><%= @round.course_name %></td>
+    <td><%= @round.course.name %></td>
     <td><%= @round.score %></td>
-    <td><%= @round.course_par %></td>
+    
   </tr>
 
 </table>
+
+<br>
 
 <table border="3px solid">
   <tr>
     <td>Par for each hole</td>
 
-    <% @round.par_hash.each do |key, val| %>
+    <% @round.course.par_hash.each do |key, val| %>
       <td><%= val %></td>
     <% end %>
   </tr>
@@ -38,5 +40,3 @@
   </tr>
 
 </table>
-<br>
-<%= link_to "Rounds", rounds_url %>

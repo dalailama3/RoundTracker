@@ -1,12 +1,19 @@
-<h1>Welcome <%= current_user.email %></h1>
-<h1>My rounds</h1>
+<div class="jumbotron">
+  <div class="container">
 
-<%= link_to "Add Round", new_round_url %>
+    <h1>Welcome <%= current_user.email %></h1>
+    <h1>My rounds</h1>
+
+    <%= link_to "Add Round", new_round_url %>
+    <br>
+    <%= link_to "Add Course", new_course_url %>
 
 
-<ul>
-  <% @rounds.each do |round| %>
-    <li><%= link_to "#{round.course_name} round", round_url(round) %></li>
-  <% end %>
+    <ul>
+      <% @rounds.each do |round| %>
+        <li><%= link_to "#{round.course.name} round", round_url(round) %></li>
+      <% end %>
 
-</ul>
+    </ul>
+  </div>
+</div

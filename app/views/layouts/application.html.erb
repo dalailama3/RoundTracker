@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+<nav class="navbar navbar-default">
+  <ul class="nav nav-pills">
+    <li><a href="<%= rounds_url %>">Rounds</a></li>
+    <li><a href="<%= courses_url %>">Courses</a></li>
+    <li><a href="#">Stats</a></li>
+
+    <div class="nav-right">
+      <div class="pull-right">
+        <% if logged_in? %>
+          <li><%= link_to "Sign Out", session_url, method: :delete %></li>
+
+        <% else %>
+          <li><%= link_to "Sign In", new_session_url %></li>
+        <% end %>
+
+      </div>
+    </div>
+
+  </ul>
+</nav>
 <html>
 <head>
   <title>RoundTracker</title>
@@ -7,8 +27,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
