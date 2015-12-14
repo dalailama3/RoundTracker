@@ -10,7 +10,6 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    
 
   end
 
@@ -22,16 +21,19 @@ class CoursesController < ApplicationController
     else
       render :new
     end
-
-  end
-
-  def edit
-
   end
 
   def destroy
 
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to rounds_url
   end
+
+  def edit
+    @course = Course.find(params[:id])
+  end
+
 
   private
 

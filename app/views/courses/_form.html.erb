@@ -1,0 +1,27 @@
+<% form_method = (action == :new) ? "POST" : "PATCH" %>
+<% form_url = (action == :new) ? courses_url : course_url(course) %>
+
+<form action="<%= form_url %>" method="POST">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+  <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>">
+  <label>Course Name<input type="text" name="course[name]" value="<%= @course.name %>"></label>
+  <table>
+    <tr>
+      <td>Front Pars</td>
+      <% 1.upto(9).each do |num| %>
+        <% par_value = (action == :new) ? "" : course.par_hash["hole#{num}"] %>
+        <td><input type="number" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>Back Pars</td>
+      <% 10.upto(18).each do |num| %>
+        <% par_value = (action == :new) ? "" : course.par_hash["hole#{num}"] %>
+        <td><input type="number" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
+      <% end %>
+    </tr>
+  </table>
+
+  <input type="submit" name"Submit">
+
+</form>
