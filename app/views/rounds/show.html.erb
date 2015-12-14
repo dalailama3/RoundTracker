@@ -10,7 +10,8 @@
     <td><%= @round.date %></td>
     <td><%= @round.course.name %></td>
     <td><%= @round.score %></td>
-    
+    <td><%= @round.course.par_for_the_course %></td>
+
   </tr>
 
 </table>
@@ -40,3 +41,5 @@
   </tr>
 
 </table>
+<%= link_to "Delete Round", round_url(@round), method: :delete%>
+<%= link_to "Edit Round", edit_round_url(@round) %>

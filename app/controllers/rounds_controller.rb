@@ -22,7 +22,7 @@ class RoundsController < ApplicationController
     @round.user_id = current_user.id
     @round.score = total_score
     @round.score_hash = score_hash
-    
+
 
     if @round.save
       redirect_to round_url(@round)
@@ -31,10 +31,25 @@ class RoundsController < ApplicationController
     end
   end
 
+  def destroy
+    @round = Round.find(params[:id])
+    @round.destroy
+    redirect_to rounds_url
+  end
+
   def edit
     @round = Round.find(params[:id])
+    @courses = Course.all
+
+
+  end
+
+  def update
+    @round = Round.find(params[:id])
+    @round.score_hash = score_hash
     if @round.update_attributes(round_params)
-      render round_url(@round)
+
+      redirect_to round_url(@round)
     else
       render :edit
     end
@@ -45,8 +60,6 @@ class RoundsController < ApplicationController
     params.require(:round).permit(:date, :course_id)
   end
 
-
-
   def total_score
     result = 0
     params[:round].each do |param, val|
@@ -54,8 +67,6 @@ class RoundsController < ApplicationController
     end
     result
   end
-
-
 
   def score_hash
     score_hash = {}
@@ -66,6 +77,4 @@ class RoundsController < ApplicationController
     end
     score_hash
   end
-
-
 end

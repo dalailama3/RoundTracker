@@ -10,6 +10,8 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    
+
   end
 
   def create
@@ -38,14 +40,7 @@ class CoursesController < ApplicationController
 
   end
 
-  def par_for_the_course
-    result = 0
 
-    params[:course].each do |param, val|
-      result += val.to_i if param.start_with?("hole")
-    end
-    result
-  end
 
 
   def par_hash

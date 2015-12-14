@@ -11,7 +11,7 @@
 
     <ul>
       <% @rounds.each do |round| %>
-        <li><%= link_to "#{round.course.name} round", round_url(round) %></li>
+        <li><%= link_to "#{round.course.name} #{round.date} round", round_url(round) %></li>
       <% end %>
 
     </ul>
