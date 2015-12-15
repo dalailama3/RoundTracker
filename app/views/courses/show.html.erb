@@ -16,7 +16,7 @@
 
 <% @course.rounds.each do |round| %>
 
-  <table>
+  <a href="<%= round_url(round) %>"><table>
     <tr>
       <th>Date</th>
       <th>Course</th>
@@ -32,7 +32,7 @@
 
     </tr>
 
-  </table>
+  </table></a>
 
   <br>
 

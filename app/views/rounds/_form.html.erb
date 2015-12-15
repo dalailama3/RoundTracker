@@ -30,8 +30,9 @@
     </tr>
     <tr>
       <td>Putts</td>
-      <% putt_value = (action == :new) ? "" : round.putt_hash["putts#{num}"] %>
+
       <% 1.upto(9).each do |num| %>
+        <% putt_value = (action == :new) ? "" : round.putts_hash["putts#{num}"] %>
         <td><input type="number" min="0" name="round[putts<%= num %>]" value="<%= putt_value %>"</td>
       <% end %>
     </tr>
@@ -44,13 +45,44 @@
     </tr>
     <tr>
       <td>Putts</td>
-      <% putt_value = (action == :new) ? "" : round.putts_hash["putts#{num}"] %>
       <% 10.upto(18).each do |num| %>
+        <% putt_value = (action == :new) ? "" : round.putts_hash["putts#{num}"] %>
         <td><input type="number" min="0" name="round[putts<%= num %>]" value="<%= putt_value %>"</td>
       <% end %>
     </tr>
   </table>
   <br>
+
+  <table>
+    <th>Fairways In Regulation</th>
+    <th>Yes</th>
+    <th>No</th>
+    <% 1.upto(18).each do |hole| %>
+      <tr>
+        <td>Hole #<%= hole %></td>
+        <td>
+          <input type="radio" name="round[fairways<%=hole%>]" value="Y">
+          <input type="radio" name="round[fairways<%=hole%>]" value="N">
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+
+  <table>
+    <th>Greens In Regulation</th>
+    <th>Yes</th>
+    <th>No</th>
+    <% 1.upto(18).each do |hole| %>
+      <tr>
+        <td>Hole #<%= hole %></td>
+        <td>
+          <input type="radio" name="round[greens<%=hole%>]" value="Y">
+          <input type="radio" name="round[greens<%=hole%>]" value="N">
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
   <textarea name="round[note]" placeholder="Notes about your round"><%= round.note %></textarea>
   <br>

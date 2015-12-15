@@ -7,14 +7,34 @@
     <% if @round.total_putts %>
       <th>Total Putts</th>
     <% end %>
+    <% if @round.fairways %>
+      <th>Fairways in Regulation</th>
+
+    <% end %>
+    <% if @round.greens %>
+      <th>Greens in Regulation</th>
+
+    <% end %>
+
   </tr>
+
 
   <tr>
     <td><%= @round.date %></td>
     <td><%= @round.course.name %></td>
     <td><%= @round.score %></td>
     <td><%= @round.course.par_for_the_course %></td>
-    <td><%= @round.total_putts %></td>
+    <% if @round.total_putts %>
+      <td><%= @round.total_putts %></td>
+    <% end %>
+    <% if @round.fairways %>
+      <td><%= @round.fairways.count('x') %></td>
+
+    <% end %>
+    <% if @round.greens %>
+      <td><%= @round.greens.count('x') %></td>
+
+    <% end %>
 
   </tr>
 
@@ -27,7 +47,7 @@
     <td>Holes</td>
     <% 1.upto(18).each do |num| %>
       <td><%= num %></td>
-    <% end %> 
+    <% end %>
 
   </tr>
   <tr>
@@ -52,19 +72,49 @@
   </tr>
 
   <tr>
-    <td>Putts</td>
-    <% @round.putts_hash.values.each do |val| %>
-      <td><%= val %></td>
+
+    <% if @round.total_putts %>
+      <td>Putts</td>
+      <% @round.putts_hash.values.each do |val| %>
+        <td><%= val %></td>
+      <% end %>
     <% end %>
 
   </tr>
 
+  <tr>
+    <% if @round.fairways %>
+      <td>Fairways in Regulation</td>
+      <% @round.fairways.each do |x| %>
+        <td><%= x %></td>
+
+      <% end %>
+
+    <% end %>
+
+  </tr>
+
+  <tr>
+    <% if @round.greens %>
+      <td>Greens in Regulation</td>
+      <% @round.greens.each do |x| %>
+        <td><%= x %></td>
+
+      <% end %>
+
+    <% end %>
+
+  </tr>
+
+
 </table>
 <br>
 
-<div class="round_note">
-  <textarea readonly><%= @round.note %></textarea>
-</div>
+<% if @round.note != "" %>
+  <div class="round_note">
+    <textarea readonly><%= @round.note %></textarea>
+  </div>
+<% end %>
 
 <%= link_to "Delete Round", round_url(@round), method: :delete%>
 <%= link_to "Edit Round", edit_round_url(@round) %>

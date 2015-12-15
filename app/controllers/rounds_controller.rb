@@ -23,6 +23,8 @@ class RoundsController < ApplicationController
     @round.score = total_score
     @round.score_hash = score_hash
     @round.putts_hash = putts_hash
+    @round.greens_hash = greens_hash
+    @round.fairways_hash = fairways_hash
 
     if @round.save
       redirect_to round_url(@round)
@@ -87,4 +89,26 @@ class RoundsController < ApplicationController
     end
     putts_hash
   end
+
+  def greens_hash
+    greens_hash = {}
+    params[:round].each do |param, val|
+      if param.start_with?("greens")
+        greens_hash[param] = val
+      end
+    end
+    greens_hash
+  end
+
+  def fairways_hash
+    fairways_hash = {}
+    params[:round].each do |param, val|
+      if param.start_with?("fairways")
+        fairways_hash[param] = val
+      end
+    end
+    fairways_hash
+  end
+
+
 end

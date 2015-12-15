@@ -18,6 +18,23 @@ class Round < ActiveRecord::Base
   end
 
   def total_putts
-    self.putts_hash.values.map(&:to_i).inject(:+)
+    if self.putts_hash
+      self.putts_hash.values.map(&:to_i).inject(:+)
+    end
+  end
+
+  def fairways
+    if self.fairways_hash
+      arr = self.fairways_hash.values.map { |v| 'x' if v == "Y" }
+    end
+    arr
+
+  end
+
+  def greens
+    if self.greens_hash
+      arr = self.greens_hash.values.map { |v| 'x' if v == "Y" }
+    end
+    arr
   end
 end
