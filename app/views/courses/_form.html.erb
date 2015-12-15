@@ -10,14 +10,14 @@
       <td>Front Pars</td>
       <% 1.upto(9).each do |num| %>
         <% par_value = (action == :new) ? "" : course.par_hash["hole#{num}"] %>
-        <td><input type="number" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
+        <td><input type="number" min="1" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
       <% end %>
     </tr>
     <tr>
       <td>Back Pars</td>
       <% 10.upto(18).each do |num| %>
         <% par_value = (action == :new) ? "" : course.par_hash["hole#{num}"] %>
-        <td><input type="number" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
+        <td><input type="number" min="1" name="course[hole<%=num%>]" value="<%= par_value %>" placeholder="Hole #<%= num %>"></td>
       <% end %>
     </tr>
   </table>

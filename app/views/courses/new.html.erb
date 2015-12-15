@@ -1,3 +1,9 @@
 <h1>Add a course!</h1>
 
+<% @course.errors.full_messages.each do |msg| %>
+  <ul>
+    <li><%= msg %></li>
+  </ul>
+<% end %>
+
 <%= render "form", course: @course, action: :new %>

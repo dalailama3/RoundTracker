@@ -25,18 +25,21 @@
       <td>Front</td>
       <% 1.upto(9).each do |num| %>
         <% score_value = (action == :new) ? "" : round.score_hash["score#{num}"] %>
-        <td><input type="number" name="round[score<%=num%>]" value="<%= score_value %>" placeholder="Hole #<%= num %>"></td>
+        <td><input type="number" min="1" name="round[score<%=num%>]" value="<%= score_value %>" placeholder="Hole #<%= num %>"></td>
       <% end %>
     </tr>
     <tr>
       <td>Back</td>
       <% 10.upto(18).each do |num| %>
         <% score_value = (action == :new) ? "" : round.score_hash["score#{num}"] %>
-        <td><input type="number" name="round[score<%=num%>]" value="<%= score_value %>" placeholder="Hole #<%= num %>"></td>
+        <td><input type="number" min="1" name="round[score<%=num%>]" value="<%= score_value %>" placeholder="Hole #<%= num %>"></td>
       <% end %>
     </tr>
   </table>
+  <br>
 
+  <textarea name="round[note]" placeholder="Notes about your round"><%= round.note %></textarea>
+  <br>
   <input type="submit" value="Submit">
 
 </form>

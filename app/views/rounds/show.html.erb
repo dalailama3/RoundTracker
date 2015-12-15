@@ -41,5 +41,10 @@
   </tr>
 
 </table>
+<br>
+<div class="round_note">
+  <textarea readonly><%= @round.note %></textarea>
+</div>
+
 <%= link_to "Delete Round", round_url(@round), method: :delete%>
 <%= link_to "Edit Round", edit_round_url(@round) %>
