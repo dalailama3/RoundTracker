@@ -17,7 +17,7 @@ class RoundsController < ApplicationController
   end
 
   def create
-
+    @courses = Course.all
     @round = Round.new(round_params)
     @round.user_id = current_user.id
     @round.score = total_score

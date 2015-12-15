@@ -1,2 +1,8 @@
 <h1>Add Round</h1>
+
+<% @round.errors.full_messages.each do |msg| %>
+  <ul>
+    <li><%= msg %></li>
+  </ul>
+<% end  %>
 <%= render "form", round: @round, action: :new %>
