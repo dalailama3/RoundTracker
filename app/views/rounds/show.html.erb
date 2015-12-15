@@ -4,6 +4,9 @@
     <th>Course</th>
     <th>Score</th>
     <th>Par</th>
+    <% if @round.total_putts %>
+      <th>Total Putts</th>
+    <% end %>
   </tr>
 
   <tr>
@@ -11,6 +14,7 @@
     <td><%= @round.course.name %></td>
     <td><%= @round.score %></td>
     <td><%= @round.course.par_for_the_course %></td>
+    <td><%= @round.total_putts %></td>
 
   </tr>
 
@@ -19,6 +23,13 @@
 <br>
 
 <table border="3px solid">
+  <tr>
+    <td>Holes</td>
+    <% 1.upto(18).each do |num| %>
+      <td><%= num %></td>
+    <% end %> 
+
+  </tr>
   <tr>
     <td>Par for each hole</td>
 
@@ -40,8 +51,17 @@
     <% end %>
   </tr>
 
+  <tr>
+    <td>Putts</td>
+    <% @round.putts_hash.values.each do |val| %>
+      <td><%= val %></td>
+    <% end %>
+
+  </tr>
+
 </table>
 <br>
+
 <div class="round_note">
   <textarea readonly><%= @round.note %></textarea>
 </div>

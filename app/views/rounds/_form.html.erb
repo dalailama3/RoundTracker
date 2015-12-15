@@ -29,10 +29,24 @@
       <% end %>
     </tr>
     <tr>
+      <td>Putts</td>
+      <% putt_value = (action == :new) ? "" : round.putt_hash["putts#{num}"] %>
+      <% 1.upto(9).each do |num| %>
+        <td><input type="number" min="0" name="round[putts<%= num %>]" value="<%= putt_value %>"</td>
+      <% end %>
+    </tr>
+    <tr>
       <td>Back</td>
       <% 10.upto(18).each do |num| %>
         <% score_value = (action == :new) ? "" : round.score_hash["score#{num}"] %>
         <td><input type="number" min="1" name="round[score<%=num%>]" value="<%= score_value %>" placeholder="Hole #<%= num %>"></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>Putts</td>
+      <% putt_value = (action == :new) ? "" : round.putts_hash["putts#{num}"] %>
+      <% 10.upto(18).each do |num| %>
+        <td><input type="number" min="0" name="round[putts<%= num %>]" value="<%= putt_value %>"</td>
       <% end %>
     </tr>
   </table>

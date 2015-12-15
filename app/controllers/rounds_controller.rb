@@ -22,7 +22,7 @@ class RoundsController < ApplicationController
     @round.user_id = current_user.id
     @round.score = total_score
     @round.score_hash = score_hash
-
+    @round.putts_hash = putts_hash
 
     if @round.save
       redirect_to round_url(@round)
@@ -76,5 +76,15 @@ class RoundsController < ApplicationController
       end
     end
     score_hash
+  end
+
+  def putts_hash
+    putts_hash = {}
+    params[:round].each do |param, val|
+      if param.start_with?("putts")
+        putts_hash[param] = val
+      end
+    end
+    putts_hash
   end
 end
