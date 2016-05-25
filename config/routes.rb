@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :rounds
-  resources :courses
+
+  namespace :api, defaults: { format: :json } do
+    resources :rounds
+    resources :courses
+  end
 end
