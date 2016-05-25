@@ -1,7 +1,7 @@
 <h1>Courses I've played</h1>
 
 <ul>
-  <% @courses.each do |course| %>
+  <% current_user.courses.each do |course| %>
     <li><%= link_to course.name, course_url(course) %></li>
   <% end %>
 
