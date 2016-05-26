@@ -1,3 +1,42 @@
-<h1>Show Round!</h1>
+<h1><%= round.get("date") %></h1>
 
-<%= round.get("score_hash") %>
+<h3>Score: <%= round.totalScore() %></h3>
+
+<% var hash = round.get("score_hash") %>
+<!--
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Course</th>
+    <th>Score</th>
+    <th>Par</th>
+    <% if (round.get("putts_hash")) { %>
+      <th>Total Putts</th>
+    <% } %>
+
+    <% if (round.get("fairways_hash")) { %>
+      <th>Fairways in Regulation</th>
+    <% } %>
+
+    <% if (round.get("greens_hash")) { %>
+      <th>Greens in Regulation</th>
+    <% } %>
+
+  </tr>
+</table> -->
+
+<table border="3px solid">
+  <tr>
+    <td>Holes</td>
+    <% for (var num = 1; num <= 18; num++) { %>
+      <td><%= num %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Score for each hole</td>
+    <% for (var hole in hash) { %>
+      <td><%= hash[hole] %></td>
+    <% } %>
+  </tr>
+</table>
