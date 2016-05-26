@@ -16,8 +16,11 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  roundShowPage: function () {
+  roundShowPage: function (id) {
+    var round = RoundTracker.Collections.rounds.get(id);
+    var showView = new RoundTracker.Views.RoundShow({model: round});
 
+    this._swapView(showView);
   },
 
   _swapView: function (view) {
