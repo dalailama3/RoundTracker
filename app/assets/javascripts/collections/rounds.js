@@ -1,4 +1,5 @@
 window.RoundTracker.Collections.Rounds = Backbone.Collection.extend({
-  urlRoot: "api/rounds",
+  url: "api/rounds",
   model: RoundTracker.Models.Round
 });
+window.RoundTracker.Collections.rounds = new RoundTracker.Collections.Rounds()

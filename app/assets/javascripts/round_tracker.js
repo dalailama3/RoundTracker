@@ -4,7 +4,9 @@ window.RoundTracker = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new window.RoundTracker.Routers.AppRouter()
+    Backbone.history.start()
+  
   }
 };
 

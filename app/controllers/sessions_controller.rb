@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:user][:email])
     if !user.nil?
       log_in!
-      redirect_to rounds_url
+      redirect_to :root
     else
       render :new
     end

@@ -1,0 +1,8 @@
+<h1>Rounds</h1>
+
+<ul>
+  <% _.each(rounds.models, function (round) { %>
+    <li><%= round.get("score") %></li>
+
+  <% }) %>
+</ul>
