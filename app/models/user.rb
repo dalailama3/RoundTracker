@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   end
   has_many :rounds
   has_many :courses, -> { distinct }, :through => :rounds
+  has_many :friendships
+  has_many :friends, :through => :friendships
 
   def reset_session_token!
     self.session_token = SecureRandom::urlsafe_base64
