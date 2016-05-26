@@ -5,6 +5,8 @@ window.RoundTracker.Views.RoundShow = Backbone.View.extend({
     var content = this.template({round: this.model});
     this.$el.html(content);
 
+    
+
     return this;
   }
 });
