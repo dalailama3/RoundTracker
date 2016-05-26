@@ -26,7 +26,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   coursesIndexPage: function () {
 
-    var courses = RoundTracker.Collection.courses;
+    var courses = RoundTracker.Collections.courses;
 
     var indexView = new RoundTracker.Views.CoursesIndex({collection: courses});
 

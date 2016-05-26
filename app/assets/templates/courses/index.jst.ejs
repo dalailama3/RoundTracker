@@ -1,0 +1,9 @@
+<h1>Courses</h1>
+
+<ul>
+  <% _.each(courses.models, function (course) { %>
+    <li><%= course.escape("name") %></li>
+    <a href="#courses/<%= course.id %>">Show Course</a>
+
+  <% }) %>
+</ul>
