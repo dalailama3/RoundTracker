@@ -1,7 +1,8 @@
 window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "roundsIndexPage",
-    "rounds/:id": "roundShowPage"
+    "rounds/:id": "roundShowPage",
+    "courses: coursesIndexPage"
   },
 
   currentView: null,
@@ -21,6 +22,15 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     var showView = new RoundTracker.Views.RoundShow({model: round});
 
     this._swapView(showView);
+  },
+
+  coursesShowPage: function () {
+    var courses = RoundTracker.Collection.courses;
+    var indexView = new RoundTracker.Views.CoursesIndex({collection: courses});
+
+    courses.fetch();
+
+    this._swapView(indexView);
   },
 
   _swapView: function (view) {
