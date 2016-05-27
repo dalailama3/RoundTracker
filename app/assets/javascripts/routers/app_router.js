@@ -46,7 +46,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
-      $("div.right").empty();
+    $("div.right").empty();
     if (this.currentView) {
       this.currentView.remove();
     }

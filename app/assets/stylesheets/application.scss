@@ -17,6 +17,35 @@
 @import "font-awesome";
 
 body {
-  background-image: url("https://www.standrews.com/SALT9/media/Lane-Images/Meet-your-match-lane-Eden-3rd.jpg?ext=.jpg");
+  // background-image: url("https://www.standrews.com/SALT9/media/Lane-Images/Meet-your-match-lane-Eden-3rd.jpg?ext=.jpg");
   font-family: "FontAwesome";
+}
+
+h1 {
+  font-weight:bold;
+}
+
+table {
+
+}
+
+td, th {
+  border: 1px solid #CCC;
+  // height: 30px;
+  width: 50px;
+  text-align: center;
+
+}
+
+th {
+background: #F3F3F3; /* Light grey background */
+font-weight: bold; /* Make sure they're bold */
+}
+
+div.backdrop {
+  float: left;
+}
+
+div.right {
+  float: right;
 }
