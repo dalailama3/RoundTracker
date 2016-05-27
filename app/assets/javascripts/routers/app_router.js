@@ -22,7 +22,8 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     var round = RoundTracker.Collections.rounds.getOrFetch(id);
     var showView = new RoundTracker.Views.RoundShow({model: round});
 
-    this._swapView(showView);
+    // this._swapView(showView);
+    $("div.right").html(showView.render().$el);
   },
 
   coursesIndexPage: function () {
@@ -36,19 +37,22 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  courseShowPage: function () {
+  courseShowPage: function (id) {
     var course = RoundTracker.Collections.courses.getOrFetch(id);
     var showView = new RoundTracker.Views.CourseShow({model: course});
 
     this._swapView(showView);
+
   },
 
   _swapView: function (view) {
+      $("div.right").empty();
     if (this.currentView) {
       this.currentView.remove();
     }
     this.currentView = view;
 
     $("div.backdrop").html(view.render().$el);
+
   }
 });

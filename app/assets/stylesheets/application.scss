@@ -13,4 +13,10 @@
  */
 
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+  background-image: url("https://www.standrews.com/SALT9/media/Lane-Images/Meet-your-match-lane-Eden-3rd.jpg?ext=.jpg");
+  font-family: "FontAwesome";
+}
