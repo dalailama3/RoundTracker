@@ -1,6 +1,8 @@
 <h1><%= round.get("date") %></h1>
+<h2><%= course.name %></h2>
 
-<h3>Score: <%= round.totalScore() %></h3>
+<h3>Score: <%= round.get("score") %></h3>
+
 
 <% var hash = round.get("score_hash") %>
 <!--
