@@ -1,3 +1,21 @@
 <h1>Course Info</h1>
 
-<%= course.escape("name") %>
+<h1><%= course.escape("name") %></h1>
+
+<% var parHash = course.get("par_hash") %>
+
+<table>
+  <tr>
+    <td>Holes</td>
+    <% for (var num = 1; num <= 18; num++) { %>
+      <td><%= num %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Par</td>
+    <% for (var hole in parHash) { %>
+      <td><%= parHash[hole] %></td>
+    <% } %>
+  </tr>
+</table>
