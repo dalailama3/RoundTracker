@@ -1,9 +1,12 @@
 window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "roundsIndexPage",
+    "rounds/new": "roundsNewPage",
     "rounds/:id": "roundShowPage",
     "courses": "coursesIndexPage",
-    "courses/:id": "courseShowPage"
+    "courses/new": "coursesNewPage",
+    "courses/:id": "courseShowPage",
+
   },
 
   currentView: null,
@@ -27,6 +30,11 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     $("div.right").html(showView.render().$el);
   },
 
+  roundsNewPage: function () {
+    var roundsNew = new RoundTracker.Views.RoundsNew();
+    this._swapView(roundsNew)
+  },
+
   coursesIndexPage: function () {
 
     var courses = RoundTracker.Collections.courses;
@@ -44,6 +52,11 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
     this._swapView(showView);
 
+  },
+
+  coursesNewPage: function () {
+    var coursesNew = new RoundTracker.Views.CoursesNew();
+    this._swapView(coursesNew);
   },
 
 

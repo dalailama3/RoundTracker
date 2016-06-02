@@ -1,9 +1,6 @@
 <% form_method = (action == :new) ? "POST" : "PATCH" %>
 <% form_url = (action == :new) ? rounds_url : round_url(round) %>
 
-
-
-
 <form action="<%= form_url %>" method="POST">
   <input type="hidden" name="_method" value="<%= form_method %>">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

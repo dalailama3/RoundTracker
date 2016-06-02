@@ -10,13 +10,12 @@ module Api
     def show
       @round = Round.find(params[:id])
       @diffs = @round.differentials
-  
+
     end
 
     def new
       @round = Round.new
       @courses = Course.all
-
     end
 
     def create
