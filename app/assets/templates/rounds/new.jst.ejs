@@ -1,6 +1,6 @@
 <h1>Add Round</h1>
 
-<form>
+<form name="round-form">
 
 <label>Date
   <input type="date" name="round[date]">
@@ -60,10 +60,10 @@
     <tr>
       <td>Hole #<%= hole %></td>
       <td>
-        <input type="radio" name="round[fairways<%=hole%>]" value="Y">
+        <input type="checkbox" id="yes" name="round[fairways<%=hole%>]" value="Y">
       </td>
       <td>
-        <input type="radio" name="round[fairways<%=hole%>]" value="N">
+        <input type="checkbox" id="no" name="round[fairways<%=hole%>]" value="N">
       </td>
     </tr>
   <% } %>
@@ -79,10 +79,10 @@
     <tr>
       <td>Hole #<%= hole %></td>
       <td>
-        <input type="radio" name="round[greens<%=hole%>]" value="Y">
+        <input type="checkbox" name="round[greens<%=hole%>]" value="Y">
       </td>
       <td>
-        <input type="radio" name="round[greens<%=hole%>]" value="N">
+        <input type="checkbox" name="round[greens<%=hole%>]" value="N">
       </td>
     </tr>
   <% } %>

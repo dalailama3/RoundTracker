@@ -5,8 +5,18 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     this.listenTo(this.courses, "sync", this.render)
   },
   events: {
-    "submit form": "createRound"
+    "submit form": "createRound",
+    "click input:checkbox": "beLikeRadio"
 
+  },
+
+  beLikeRadio: function (e) {
+    var clicked = e.currentTarget;
+    var id = clicked.id
+    var other = id === "yes" ? "no" : "yes"
+    var parent = $(clicked).parents("tr")
+    var sib = parent.find("input#" + other);
+    sib.prop("checked", false);
   },
 
   createRound: function () {
