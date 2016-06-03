@@ -6,7 +6,7 @@ RoundTracker::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :rounds, except: [:new]
+    resources :rounds
     resources :courses
   end
 end

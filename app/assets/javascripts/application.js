@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson
 //= require turbolinks
 //= require underscore
 //= require backbone
@@ -22,4 +23,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-//= require bootstrap 
+//= require bootstrap

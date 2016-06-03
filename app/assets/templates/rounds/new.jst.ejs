@@ -1,1 +1,95 @@
-<h1>Hello!</h1>
+<h1>Add Round</h1>
+
+<form>
+
+<label>Date
+  <input type="date" name="round[date]">
+</label>
+
+<br>
+
+<select name="round[course_id]" id="round_course">
+  <% _.each(courses.models, function (course) { %>
+    <option value="<%= course.id %>"><%= course.get("name") %></option>
+  <% }) %>
+
+</select>
+
+<br>
+
+<table>
+  <tr>
+    <td>Front</td>
+    <% for (var num = 1; num <= 9; num++) { %>
+      <td><input type="number" min="1" name="round[score<%=num%>]" value= "" placeholder="Hole #<%= num %>"></td>
+    <% } %>
+  <tr>
+  <tr>
+    <td>Putts</td>
+
+    <% for (var num = 1; num <= 9; num++) { %>
+
+      <td><input type="number" min="0" name="round[putts<%= num %>]" value=""</td>
+    <% } %>
+  </tr>
+  <tr>
+
+  <tr>
+    <td>Back</td>
+    <% for (var num = 10; num <= 18; num++) { %>
+      <td><input type="number" min="1" name="round[score<%=num%>]" value= "" placeholder="Hole #<%= num %>"></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Putts</td>
+
+    <% for (var num = 10; num <= 18; num++) { %>
+
+      <td><input type="number" min="0" name="round[putts<%= num %>]" value=""</td>
+    <% } %>
+  </tr>
+</table>
+
+
+<table>
+  <th>Fairways In Regulation</th>
+  <th>Yes</th>
+  <th>No</th>
+  <% for (var hole = 1; hole <= 18; hole++) { %>
+    <tr>
+      <td>Hole #<%= hole %></td>
+      <td>
+        <input type="radio" name="round[fairways<%=hole%>]" value="Y">
+      </td>
+      <td>
+        <input type="radio" name="round[fairways<%=hole%>]" value="N">
+      </td>
+    </tr>
+  <% } %>
+</table>
+
+<br>
+
+<table>
+  <th>Greens In Regulation</th>
+  <th>Yes</th>
+  <th>No</th>
+  <% for (var hole = 1; hole <= 18; hole++) { %>
+    <tr>
+      <td>Hole #<%= hole %></td>
+      <td>
+        <input type="radio" name="round[greens<%=hole%>]" value="Y">
+      </td>
+      <td>
+        <input type="radio" name="round[greens<%=hole%>]" value="N">
+      </td>
+    </tr>
+  <% } %>
+</table>
+<br>
+
+<textarea name="round[note]" placeholder="Notes about your round"></textarea>
+
+<input type="submit" value="Submit">
+</form>
