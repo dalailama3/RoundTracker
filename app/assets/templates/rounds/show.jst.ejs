@@ -2,15 +2,22 @@
 
 
 <% if (round.get("course")) { %>
-  <h2><%= round.get("course").name %></h2>
+  <% var courseName = round.get("course").name %>
+  <h2><%= courseName %></h2>
+  <% var parHash = round.get("course").par_hash %>
+  <% var parTotal = 0 %>
+  <% for (var key in parHash) { %>
+    <% parTotal += parseInt(parHash[key]) %>
+  <% } %>
 
 <% } %>
 
 <h3>Score: <%= round.get("score") %></h3>
 
 
+
 <% var hash = round.get("score_hash") %>
-<!--
+
 <table>
   <tr>
     <th>Date</th>
@@ -19,6 +26,11 @@
     <th>Par</th>
     <% if (round.get("putts_hash")) { %>
       <th>Total Putts</th>
+      <% var puttsTotal = 0 %>
+      <% var puttsHash = round.get("putts_hash") %>
+      <% for (var key in puttsHash) { %>
+        <% puttsTotal += isNaN(parseInt(puttsHash[key])) ? 0 : parseInt(puttsHash[key]) %>
+      <% } %>
     <% } %>
 
     <% if (round.get("fairways_hash")) { %>
@@ -28,9 +40,23 @@
     <% if (round.get("greens_hash")) { %>
       <th>Greens in Regulation</th>
     <% } %>
+  </tr>
+
+  <tr>
+    <td><%= round.get("date") %></td>
+    <td><%= courseName %></td>
+    <td><%= round.get("score")%></td>
+    <td><%= parTotal %></td>
+    <% if (round.get("putts_hash")) { %>
+      <td><%= puttsTotal %></td>
+    <% } %>
+    <% if (round.get("fairways_hash")) { %>
+      <td><%= round.fairwaysCount() %></td>
+    <% } %>
 
   </tr>
-</table> -->
+</table>
+<br>
 
 <table>
   <tr>
