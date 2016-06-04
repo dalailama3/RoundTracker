@@ -19,7 +19,6 @@ module Api
     end
 
     def create
-      @courses = Course.all
       @round = Round.new(round_params)
       @round.user_id = current_user.id
       @round.score = total_score
@@ -27,10 +26,8 @@ module Api
       @round.putts_hash = putts_hash
       @round.greens_hash = greens_hash
       @round.fairways_hash = fairways_hash
-      binding.pry
 
       if @round.save
-        # redirect_to round_url(@round)
         render json: @round
       else
         render json: @round.errors.full_messages, status: :unprocessable_entity
@@ -47,16 +44,12 @@ module Api
     def edit
       @round = Round.find(params[:id])
       @courses = Course.all
-
-
     end
 
     def update
       @round = Round.find(params[:id])
       @round.score_hash = score_hash
       if @round.update_attributes(round_params)
-
-        # redirect_to round_url(@round)
         render json: @round
       else
         render json: @round.errors.full_messages, status: :unprocessable_entity
@@ -70,16 +63,15 @@ module Api
 
     def total_score
       result = 0
-      params[:round].each do |param, val|
+      params.each do |param, val|
         result += val.to_i if param.start_with?("score")
       end
       result
     end
 
     def score_hash
-
       score_hash = {}
-      params[:round].each do |param, val|
+      params.each do |param, val|
         if param.start_with?("score")
           score_hash[param] = val
         end
@@ -90,7 +82,7 @@ module Api
 
     def putts_hash
       putts_hash = {}
-      params[:round].each do |param, val|
+      params.each do |param, val|
         if param.start_with?("putts")
           putts_hash[param] = val
         end
@@ -100,7 +92,7 @@ module Api
 
     def greens_hash
       greens_hash = {}
-      params[:round].each do |param, val|
+      params.each do |param, val|
         if param.start_with?("greens")
           greens_hash[param] = val
         end
@@ -110,7 +102,7 @@ module Api
 
     def fairways_hash
       fairways_hash = {}
-      params[:round].each do |param, val|
+      params.each do |param, val|
         if param.start_with?("fairways")
           fairways_hash[param] = val
         end
