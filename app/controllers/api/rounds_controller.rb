@@ -27,6 +27,7 @@ module Api
       @round.putts_hash = putts_hash
       @round.greens_hash = greens_hash
       @round.fairways_hash = fairways_hash
+      binding.pry
 
       if @round.save
         # redirect_to round_url(@round)
@@ -76,6 +77,7 @@ module Api
     end
 
     def score_hash
+
       score_hash = {}
       params[:round].each do |param, val|
         if param.start_with?("score")
@@ -83,6 +85,7 @@ module Api
         end
       end
       score_hash
+
     end
 
     def putts_hash

@@ -22,8 +22,17 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
   createRound: function () {
     event.preventDefault();
 
-    var stuff = $("form").serializeJSON();
-    console.log(stuff);
+    var roundData = $("form").serializeJSON()["round"];
+
+
+    var round = new RoundTracker.Models.Round();
+    round.save(roundData, {
+      success: function () {
+        console.log("it's a bingo!");
+        Backbone.history.navigate("#", {trigger: true});
+      }
+    });
+
   },
 
   render: function () {
