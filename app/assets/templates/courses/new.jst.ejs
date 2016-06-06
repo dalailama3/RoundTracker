@@ -41,7 +41,8 @@
   <br>
 
   <% for (var num = 1; num <= 3; num ++) { %>
-    <input type="file" accept="image/*" name="course[hole<%=num%>]">
+    <input id="imgInp" type="file" accept="image/*" data-key="hole_img<%=num%>" name="course[hole_img<%=num%>]">
+    <img id="blah" src="#" alt="your image" />
   <% } %>
 
   <br>

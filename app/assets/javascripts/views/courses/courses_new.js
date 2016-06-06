@@ -1,13 +1,36 @@
 window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
   template: JST["courses/new"],
   events: {
-    "click submit": "addCourse"
+    "submit form": "addCourse",
+    "change #imgInp": "previewImg"
+  },
+
+  imageHash: {},
+
+  previewImg: function (e) {
+    var input = e.currentTarget;
+    var key = $(input).data("key");
+    this.imageHash[key] = input.files[0];
+
+    if (input.files && input.files[0]) {
+           var reader = new FileReader();
+
+           reader.onload = function (e) {
+               $('#blah').attr('src', e.target.result);
+           }
+
+         reader.readAsDataURL(input.files[0]);
+    }
   },
 
   addCourse: function (e) {
+    console.log("in the function");
     e.preventDefault();
-    var courseData = $("form").seralizeJSON()["course"];
-    var newCourse = new RoundTracker.Models.Course();
+    var courseData = $("form").serializeJSON()["course"];
+    var imageData = $("form").find("input[type='file']");
+    var newCourse = new RoundTracker.Models.Course({
+      images_hash: imageData
+    });
 
     newCourse.save(courseData, {
       success: function () {
@@ -27,6 +50,7 @@ window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
           errorsUl.append(li);
 
         });
+      }
     });
   },
 

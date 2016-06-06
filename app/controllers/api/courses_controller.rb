@@ -63,7 +63,7 @@ module Api
     def images_hash
       images_hash = {}
       params[:course].each do |param, val|
-        if param.start_with?("hole")
+        if param.start_with?("hole_img")
           images_hash[param] = val
         end
       end
