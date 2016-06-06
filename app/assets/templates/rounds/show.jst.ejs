@@ -24,20 +24,14 @@
     <th>Course</th>
     <th>Score</th>
     <th>Par</th>
-    <% if (round.get("putts_hash")) { %>
+    <% if (round.get("putts_hash") !== null) { %>
       <th>Total Putts</th>
-      <% var puttsTotal = 0 %>
-      <% var puttsHash = round.get("putts_hash") %>
-      <% for (var key in puttsHash) { %>
-        <% puttsTotal += isNaN(parseInt(puttsHash[key])) ? 0 : parseInt(puttsHash[key]) %>
-      <% } %>
-    <% } %>
-
-    <% if (round.get("fairways_hash")) { %>
+      
+    <% if (round.get("fairways_hash") !== null) { %>
       <th>Fairways in Regulation</th>
     <% } %>
 
-    <% if (round.get("greens_hash")) { %>
+    <% if (round.get("greens_hash") !== null) { %>
       <th>Greens in Regulation</th>
     <% } %>
   </tr>
