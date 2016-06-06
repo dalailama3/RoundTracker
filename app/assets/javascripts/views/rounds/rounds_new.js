@@ -36,6 +36,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
            scrollTop: 0
        }, 200);
         var errorsUl = $("ul.errors");
+        errorsUl.empty();
         var errors = response.responseJSON;
 
         _.each(errors, function (error) {
