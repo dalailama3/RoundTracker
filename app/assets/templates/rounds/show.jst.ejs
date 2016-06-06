@@ -17,6 +17,10 @@
 
 
 <% var hash = round.get("score_hash") %>
+<% var puttsHash = round.get("putts_hash") %>
+<% var fairwaysHash = round.get("fairways_hash") %>
+<% var greensHash = round.get("greens_hash") %>
+
 
 <table>
   <tr>
@@ -24,14 +28,15 @@
     <th>Course</th>
     <th>Score</th>
     <th>Par</th>
-    <% if (round.get("putts_hash") !== null) { %>
+    <% if (!round.noHash("putts_hash")) { %>
       <th>Total Putts</th>
-      
-    <% if (round.get("fairways_hash") !== null) { %>
+    <% } %>
+
+    <% if (!round.noHash("fairways_hash")) { %>
       <th>Fairways in Regulation</th>
     <% } %>
 
-    <% if (round.get("greens_hash") !== null) { %>
+    <% if (!round.noHash("greens_hash")) { %>
       <th>Greens in Regulation</th>
     <% } %>
   </tr>
@@ -41,11 +46,14 @@
     <td><%= courseName %></td>
     <td><%= round.get("score")%></td>
     <td><%= parTotal %></td>
-    <% if (round.get("putts_hash")) { %>
-      <td><%= puttsTotal %></td>
+    <% if (!round.noHash("putts_hash")) { %>
+      <td><%= round.totalPutts() %></td>
     <% } %>
-    <% if (round.get("fairways_hash")) { %>
+    <% if (!round.noHash("fairways_hash")) { %>
       <td><%= round.fairwaysCount() %></td>
+    <% } %>
+    <% if (!round.noHash("greens_hash")) { %>
+      <td><%= round.greensCount() %></td>
     <% } %>
 
   </tr>
