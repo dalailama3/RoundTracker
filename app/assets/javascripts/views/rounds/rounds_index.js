@@ -1,7 +1,7 @@
 window.RoundTracker.Views.RoundsIndex = Backbone.View.extend({
   template: JST["rounds/index"],
   initialize: function (options) {
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "sync remove", this.render)
   },
 
 
