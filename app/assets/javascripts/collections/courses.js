@@ -7,7 +7,7 @@ window.RoundTracker.Collections.Courses = Backbone.Collection.extend({
     if (course = courses.get(id)) {
       course.fetch();
     } else {
-      course = new RoundTracker.Models.Round({id: id});
+      course = new RoundTracker.Models.Course({id: id});
       course.fetch({
         success: function () {
           courses.add(course);
