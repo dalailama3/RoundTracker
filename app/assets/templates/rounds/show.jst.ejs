@@ -30,7 +30,7 @@
     <th>Score</th>
     <th>Par</th>
     <% if (!round.noHash("putts_hash")) { %>
-      <th>Total Putts</th>
+      <th>Putts</th>
     <% } %>
 
     <% if (!round.noHash("fairways_hash")) { %>
@@ -80,6 +80,33 @@
     <td>Score</td>
     <% for (var hole in hash) { %>
       <td><%= hash[hole] %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <% if (!round.noHash("fairways_hash")) { %>
+      <td>Fairways</td>
+      <% for (var hole in fairwaysHash) { %>
+        <td><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
+      <% } %>
+    <% } %>
+  </tr>
+
+  <tr>
+    <% if (!round.noHash("greens_hash")) { %>
+      <td>Greens</td>
+      <% for (var hole in greensHash) { %>
+        <td><%= round.renderCheckMark(greensHash[hole]) %></td>
+      <% } %>
+    <% } %>
+  </tr>
+
+  <tr>
+    <% if (!round.noHash("putts_hash")) { %>
+      <td>Putts</td>
+      <% for (var hole in puttsHash) { %>
+        <td><%= puttsHash[hole] %></td>
+      <% } %>
     <% } %>
   </tr>
 </table>

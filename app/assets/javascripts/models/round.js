@@ -49,5 +49,13 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
       }
     }
     return count;
+  },
+
+  renderCheckMark: function (str) {
+    if (str === "Y") {
+      return 	'&#10003';
+    } else {
+      return  "";
+    }
   }
 });
