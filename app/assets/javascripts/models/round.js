@@ -9,6 +9,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     }
     return true;
   },
+  
   noHash: function (hashType) {
     var self = this;
     var hash = self.get(hashType);
