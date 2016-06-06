@@ -20,6 +20,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
   },
 
   createRound: function () {
+    var view = this;
     event.preventDefault();
 
     var roundData = $("form").serializeJSON()["round"];
@@ -31,6 +32,9 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
         Backbone.history.navigate("#", {trigger: true});
       },
       error: function (model, response) {
+        $("html, body").animate({
+           scrollTop: 0
+       }, 200);
         var errorsUl = $("ul.errors");
         var errors = response.responseJSON;
 
