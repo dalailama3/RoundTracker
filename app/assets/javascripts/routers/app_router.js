@@ -64,8 +64,8 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   coursesNewPage: function () {
     var coursesNew = new RoundTracker.Views.CoursesNew();
-    // this._swapView(coursesNew);
-    $("div.right").html(coursesNew.render().$el);
+    this._swapView(coursesNew);
+    // $("div.right").html(coursesNew.render().$el);
 
   },
 

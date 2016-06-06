@@ -1,1 +1,45 @@
-<h1>New COurse!</h1>
+<h1>Add a Course!</h1>
+<form>
+  <label for="course_name">Name</label>
+  <input id="course_name" type="text" name="course[name]"></input>
+
+  <br>
+
+  <table>
+
+
+    <tr>
+      <td>Front Nine</td>
+      <% for (var num = 1; num <= 9; num++) { %>
+        <td><%= num %></td>
+      <% } %>
+    </tr>
+
+    <tr>
+      <td>Par</td>
+      <% for (var num = 1; num <= 9; num++) { %>
+        <td><input type="number" min="1" name="course[hole<%=num%>]" value= ""></td>
+      <% } %>
+    </tr>
+
+    <tr>
+      <td>Back Nine</td>
+      <% for (var num = 10; num <= 18; num++) { %>
+        <td><%= num %></td>
+      <% } %>
+    </tr>
+
+    <tr>
+      <td>Par</td>
+      <% for (var num = 10; num <= 18; num++) { %>
+        <td><input type="number" min="1" name="course[hole<%=num%>]" value= ""></td>
+      <% } %>
+    </tr>
+  </table>
+
+  <br>
+
+  <input type="submit">
+
+
+</form>

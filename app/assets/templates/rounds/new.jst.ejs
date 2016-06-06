@@ -3,12 +3,12 @@
 
 <form name="round-form">
 
-<label>Date
-  <input type="date" name="round[date]">
-</label>
+<label for="date">Date</label>
+<input id="date" type="date" name="round[date]"></input>
+
 
 <br>
-
+<label for="round_course">Course</label>
 <select name="round[course_id]" id="round_course">
   <% _.each(courses.models, function (course) { %>
     <option value="<%= course.id %>"><%= course.get("name") %></option>
