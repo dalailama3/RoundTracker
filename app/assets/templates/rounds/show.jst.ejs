@@ -33,11 +33,11 @@
     <% } %>
 
     <% if (!round.noHash("fairways_hash")) { %>
-      <th>Fairways in Regulation</th>
+      <th>FIR</th>
     <% } %>
 
     <% if (!round.noHash("greens_hash")) { %>
-      <th>Greens in Regulation</th>
+      <th>GIR</th>
     <% } %>
   </tr>
 
@@ -65,6 +65,13 @@
     <td>Holes</td>
     <% for (var num = 1; num <= 18; num++) { %>
       <td><%= num %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Par</td>
+    <% for (var hole in parHash) { %>
+      <td><%= parHash[hole] %></td>
     <% } %>
   </tr>
 
