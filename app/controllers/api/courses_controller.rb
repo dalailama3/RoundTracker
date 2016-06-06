@@ -22,6 +22,7 @@ module Api
     def create
       @course = Course.new(course_params)
       @course.par_hash = par_hash
+      @course.images_hash = images_hash
       if @course.save
         render json: @course
       else
@@ -49,9 +50,6 @@ module Api
 
     end
 
-
-
-
     def par_hash
       par_hash = {}
       params[:course].each do |param, val|
@@ -62,6 +60,14 @@ module Api
       par_hash
     end
 
-
+    def images_hash
+      images_hash = {}
+      params[:course].each do |param, val|
+        if param.start_with?("hole")
+          images_hash[param] = val
+        end
+      end
+      images_hash
+    end
   end
 end

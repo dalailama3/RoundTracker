@@ -1,3 +1,4 @@
+<ul class="errors"></ul>
 <h1>Add a Course!</h1>
 <form>
   <label for="course_name">Name</label>
@@ -36,6 +37,12 @@
       <% } %>
     </tr>
   </table>
+
+  <br>
+
+  <% for (var num = 1; num <= 3; num ++) { %>
+    <input type="file" accept="image/*" name="course[hole<%=num%>]">
+  <% } %>
 
   <br>
 
