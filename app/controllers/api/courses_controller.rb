@@ -3,7 +3,7 @@ module Api
     before_action :require_login
 
     def index
-      @courses = current_user.courses
+      @courses = Course.all
 
       render json: @courses
     end
@@ -22,7 +22,7 @@ module Api
     def create
       @course = Course.new(course_params)
       @course.par_hash = par_hash
-      @course.images_hash = images_hash
+
       if @course.save
         render json: @course
       else
@@ -52,7 +52,7 @@ module Api
 
     def par_hash
       par_hash = {}
-      params[:course].each do |param, val|
+      params.each do |param, val|
         if param.start_with?("hole")
           par_hash[param] = val
         end

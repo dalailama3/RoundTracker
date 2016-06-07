@@ -24,16 +24,18 @@ window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
   },
 
   addCourse: function (e) {
-    console.log("in the function");
+
     e.preventDefault();
     var courseData = $("form").serializeJSON()["course"];
-    var imageData = $("form").find("input[type='file']");
+    var imageData = this.imageHash;
+
     var newCourse = new RoundTracker.Models.Course({
       images_hash: imageData
     });
 
     newCourse.save(courseData, {
-      success: function () {
+      success: function (model, response) {
+        console.log(model);
         Backbone.history.navigate("#courses", {trigger: true});
       },
       error: function (model, response) {
