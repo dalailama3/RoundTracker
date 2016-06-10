@@ -21,6 +21,7 @@ module Api
 
     def create
       @course = Course.new(course_params)
+      binding.pry
       @course.par_hash = par_hash
 
       if @course.save
@@ -40,13 +41,24 @@ module Api
 
     def edit
       @course = Course.find(params[:id])
+
     end
 
+    def update
+      @course = Course.find(params[:id])
+
+      if @course.update_attributes(course_params)
+        render :json => @course
+      else
+        render :json => @course.errors, :status => :unprocessable_entity
+      end
+
+    end
 
     private
 
     def course_params
-      params.require(:course).permit(:name)
+      params.require(:course).permit(:name, :image)
 
     end
 

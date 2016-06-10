@@ -9,6 +9,10 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def image=(image)
+    self.images_hash = {image: image}
+  end
+
   def par_for_the_course
     self.par_hash.values.map(&:to_i).inject(:+)
   end
