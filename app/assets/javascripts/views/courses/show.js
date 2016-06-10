@@ -4,7 +4,7 @@ window.RoundTracker.Views.CourseShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render)
   },
   events: {
-      "click button.delete": "deleteCourse"
+    "click button.delete": "deleteCourse"
   },
 
   deleteCourse: function (e) {

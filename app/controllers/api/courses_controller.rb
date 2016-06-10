@@ -21,7 +21,6 @@ module Api
 
     def create
       @course = Course.new(course_params)
-      binding.pry
       @course.par_hash = par_hash
 
       if @course.save
