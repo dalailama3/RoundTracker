@@ -6,7 +6,7 @@ window.RoundTracker = {
   initialize: function() {
     new window.RoundTracker.Routers.AppRouter()
     Backbone.history.start()
-  
+
   }
 };
 

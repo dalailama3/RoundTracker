@@ -72,7 +72,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   chartCoursePage: function (id) {
     var course = RoundTracker.Collections.courses.getOrFetch(id);
-    var chartCourse = new RoundTracker.Views.ChartCourse({model: course});
+    var chartCourse = new RoundTracker.Views.CourseChart({model: course});
 
     this._swapView(chartCourse);
   },
