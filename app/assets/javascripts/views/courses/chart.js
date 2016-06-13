@@ -95,6 +95,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickX = [];
     this.clickY = [];
     this.clickDrag = [];
+    this.clickColor = [];
     var content = this.template({course: this.model});
     this.$el.html(content);
 
