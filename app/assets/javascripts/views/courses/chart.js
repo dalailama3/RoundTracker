@@ -3,8 +3,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
 
   events: {
-    "mousedown canvas": "doSomething",
-    "mousemove canvas": "doMoreStuff",
+    "mousedown canvas": "startPainting",
+    "mousemove canvas": "keepPainting",
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
     "click button.color": "changeColor"
@@ -21,6 +21,9 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   colorBrown: "#986928",
   curColor: "#659b41",
   clickColor: [],
+
+  clickSize: [],
+  curSize: "normal",
 
   changeColor: function (e) {
     var color = $(e.currentTarget).text();
@@ -50,9 +53,10 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickDrag.push(dragging);
 
     this.clickColor.push(this.curColor);
+    this.clickSize.push(this.curSize);
   },
 
-  doSomething: function (e) {
+  startPainting: function (e) {
     var mouseX = e.pageX - e.currentTarget.offsetLeft;
     var mouseY = e.pageY - e.currentTarget.offsetTop;
 
@@ -61,7 +65,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.redraw();
   },
 
-  doMoreStuff: function (e) {
+  keepPainting: function (e) {
     if (this.paint) {
       this.addClick(e.pageX - e.currentTarget.offsetLeft, e.pageY - e.currentTarget.offsetTop, true);
       this.redraw();
