@@ -5,13 +5,24 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   events: {
     "mousedown canvas": "doSomething",
     "mousemove canvas": "doMoreStuff",
-    "mouseup canvas": "stopPainting"
+    "mouseup canvas": "stopPainting",
+    "click button.clear": "clearCanvas"
   },
 
   paint: false,
   clickX: [],
   clickY: [],
   clickDrag: [],
+
+  clearCanvas: function (e) {
+    var canvas = document.getElementById('canvasInAPerfectWorld');
+    var context = canvas.getContext("2d");
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+    this.clickX = [];
+    this.clickY = [];
+    this.clickDrag = [];
+  },
 
   stopPainting: function (e) {
     this.paint = false;
