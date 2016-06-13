@@ -7,7 +7,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "mousemove canvas": "keepPainting",
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
-    "click button.color": "changeColor"
+    "click button.color": "changeColor",
+    "click button.size": "changeSize"
   },
 
   paint: false,
@@ -23,7 +24,23 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickColor: [],
 
   clickSize: [],
-  curSize: "normal",
+  curSize: 5,
+
+  changeSize: function (e) {
+    var self = this;
+    var size = $(e.currentTarget).text();
+    switch (size) {
+      case "Thin":
+        self.curSize = 2;
+        break;
+      case "Normal":
+        self.curSize = 5;
+        break;
+      case "Thick":
+        self.curSize = 8;
+        break;
+    }
+  },
 
   changeColor: function (e) {
     var color = $(e.currentTarget).text();
@@ -41,6 +58,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickY = [];
     this.clickDrag = [];
     this.clickColor = [];
+    this.clickSize = [];
   },
 
   stopPainting: function (e) {
@@ -79,7 +97,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     var self = this;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     context.lineJoin = "round";
-    context.lineWidth = 5;
 
     for (var i=0; i < self.clickX.length; i++) {
       context.beginPath();
@@ -91,6 +108,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
       context.lineTo(self.clickX[i], self.clickY[i]);
       context.closePath();
       context.strokeStyle = self.clickColor[i];
+      context.lineWidth = self.clickSize[i];
       context.stroke();
     }
   },
@@ -100,6 +118,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickY = [];
     this.clickDrag = [];
     this.clickColor = [];
+    this.clickSize = [];
     var content = this.template({course: this.model});
     this.$el.html(content);
 
