@@ -14,6 +14,13 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickY: [],
   clickDrag: [],
 
+  colorPurple = "#cb3594",
+  colorGreen = "#659b41",
+  colorYellow = "#ffcf33",
+  colorBrown = "#986928",
+  curColor: this.colorGreen,
+  clickColor: [],
+
   clearCanvas: function (e) {
     var canvas = document.getElementById('canvasInAPerfectWorld');
     var context = canvas.getContext("2d");
@@ -32,6 +39,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickX.push(x);
     this.clickY.push(y);
     this.clickDrag.push(dragging);
+
+    this.clickColor.push(this.curColor);
   },
 
   doSomething: function (e) {
@@ -39,7 +48,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     var mouseY = e.pageY - e.currentTarget.offsetTop;
 
     this.paint = true;
-    this.addClick(mouseX, mouseY, this.paint);
+    this.addClick(mouseX, mouseY);
     this.redraw();
   },
 
@@ -48,7 +57,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
       this.addClick(e.pageX - e.currentTarget.offsetLeft, e.pageY - e.currentTarget.offsetTop, true);
       this.redraw();
     }
-
   },
 
   redraw: function () {
@@ -57,7 +65,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     var context = canvas.getContext("2d");
     var self = this;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-    context.strokeStyle = "#df4b26";
     context.lineJoin = "round";
     context.lineWidth = 5;
 
@@ -70,6 +77,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
       }
       context.lineTo(self.clickX[i], self.clickY[i]);
       context.closePath();
+      context.strokeStyle = clickColor[i];
       context.stroke();
     }
   },
