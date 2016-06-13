@@ -5,12 +5,14 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   events: {
     "mousedown canvas": "startPainting",
     "mousemove canvas": "keepPainting",
+    "mouseleave canvas": "stopPainting",
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
     "click button.color": "changeColor",
     "click button.size": "changeSize",
     "click button.eraser": "startErasing",
-    "click button.marker": "useMarker"
+    "click button.marker": "useMarker",
+    "click button.save": "saveImg"
   },
 
   paint: false,
@@ -29,6 +31,21 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   curSize: 5,
 
   curTool: "marker",
+
+  saveImg: function (e) {
+    console.log(this.model);
+    var canvas = document.getElementById("myCanvas");
+    var imgData = canvas.toDataURL();
+
+    var course = this.model;
+    course.set("image", imgData);
+    course.save({}, {
+      success: function () {
+        console.log("saved hole image");
+        
+      }
+    });
+  },
 
   changeSize: function (e) {
     var self = this;
@@ -57,7 +74,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   },
 
   clearCanvas: function (e) {
-    var canvas = document.getElementById('canvasInAPerfectWorld');
+    var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext("2d");
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 
@@ -110,7 +127,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   },
 
   redraw: function () {
-    var canvas = document.getElementById('canvasInAPerfectWorld');
+    var canvas = document.getElementById('myCanvas');
 
     var context = canvas.getContext("2d");
     var self = this;
