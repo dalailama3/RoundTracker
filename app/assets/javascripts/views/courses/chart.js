@@ -33,7 +33,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   curTool: "marker",
 
   saveImg: function (e) {
-    console.log(this.model);
     var canvas = document.getElementById("myCanvas");
     var imgData = canvas.toDataURL();
 
@@ -42,7 +41,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     course.save({}, {
       success: function () {
         console.log("saved hole image");
-        
+
       }
     });
   },

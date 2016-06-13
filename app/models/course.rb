@@ -10,8 +10,10 @@ class Course < ActiveRecord::Base
   end
 
   def image=(image)
-    hash_size = self.images_hash.size
-    self.images_hash["hole#{hash_size+1}"] = image
+    self.images_hash = self.images_hash || {}
+    hash_size = self.images_hash ? self.images_hash.size : 0
+    str = "hole#{hash_size + 1}"
+    self.images_hash[str] = image
   end
 
   def par_for_the_course
