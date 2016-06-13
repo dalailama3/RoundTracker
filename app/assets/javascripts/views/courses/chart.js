@@ -6,7 +6,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "mousedown canvas": "doSomething",
     "mousemove canvas": "doMoreStuff",
     "mouseup canvas": "stopPainting",
-    "click button.clear": "clearCanvas"
+    "click button.clear": "clearCanvas",
+    "click button.brown": "changeToBrown"
   },
 
   paint: false,
@@ -14,12 +15,16 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickY: [],
   clickDrag: [],
 
-  colorPurple = "#cb3594",
-  colorGreen = "#659b41",
-  colorYellow = "#ffcf33",
-  colorBrown = "#986928",
-  curColor: this.colorGreen,
+  colorPurple: "#cb3594",
+  colorGreen: "#659b41",
+  colorYellow: "#ffcf33",
+  colorBrown: "#986928",
+  curColor: "#659b41",
   clickColor: [],
+
+  changeToBrown: function (e) {
+    this.curColor = this.colorBrown;
+  },
 
   clearCanvas: function (e) {
     var canvas = document.getElementById('canvasInAPerfectWorld');
@@ -29,6 +34,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickX = [];
     this.clickY = [];
     this.clickDrag = [];
+    this.clickColor = [];
   },
 
   stopPainting: function (e) {
@@ -77,7 +83,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
       }
       context.lineTo(self.clickX[i], self.clickY[i]);
       context.closePath();
-      context.strokeStyle = clickColor[i];
+      context.strokeStyle = self.clickColor[i];
       context.stroke();
     }
   },
