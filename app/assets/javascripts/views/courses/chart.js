@@ -7,7 +7,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "mousemove canvas": "doMoreStuff",
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
-    "click button.brown": "changeToBrown"
+    "click button.color": "changeColor"
   },
 
   paint: false,
@@ -22,8 +22,11 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   curColor: "#659b41",
   clickColor: [],
 
-  changeToBrown: function (e) {
-    this.curColor = this.colorBrown;
+  changeColor: function (e) {
+    var color = $(e.currentTarget).text();
+    var func = 'this.color' + color;
+
+    this.curColor = eval(func);
   },
 
   clearCanvas: function (e) {
