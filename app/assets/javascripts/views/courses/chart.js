@@ -8,7 +8,9 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
     "click button.color": "changeColor",
-    "click button.size": "changeSize"
+    "click button.size": "changeSize",
+    "click button.eraser": "startErasing",
+    "click button.marker": "useMarker"
   },
 
   paint: false,
@@ -26,18 +28,23 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickSize: [],
   curSize: 5,
 
+  curTool: "marker",
+
   changeSize: function (e) {
     var self = this;
     var size = $(e.currentTarget).text();
     switch (size) {
       case "Thin":
-        self.curSize = 2;
+        self.curSize = 2.5;
         break;
       case "Normal":
         self.curSize = 5;
         break;
       case "Thick":
-        self.curSize = 8;
+        self.curSize = 7.5;
+        break;
+      case "Broad":
+        self.curSize = 10;
         break;
     }
   },
@@ -70,8 +77,20 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickY.push(y);
     this.clickDrag.push(dragging);
 
-    this.clickColor.push(this.curColor);
-    this.clickSize.push(this.curSize);
+    if (this.curTool === "eraser") {
+      this.clickColor.push("white");
+    } else {
+      this.clickColor.push(this.curColor);
+      this.clickSize.push(this.curSize);
+    }
+  },
+
+  startErasing: function (e) {
+    this.curTool = "eraser";
+  },
+
+  useMarker: function (e) {
+    this.curTool = "marker";
   },
 
   startPainting: function (e) {
