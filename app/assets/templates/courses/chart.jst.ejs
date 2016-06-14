@@ -1,4 +1,10 @@
-<div class="sidebar"></div>
+<% var images = course.get("images_hash") %>
+
+<div class="sidebar">
+  <% for (var img in images) { %>
+    <li class="img"><%= img %><img src="<%= images[img] %>"></li>
+<% } %>
+</div>
 
 <button class="clear">Clear</button>
 
@@ -15,7 +21,7 @@
 <button class="eraser">Eraser</button>
 <button class="marker">Marker</button>
 
-<h1>Chart <%= course.get("name") %></h1>
+<h1 class="chart-title">Chart <%= course.get("name") %></h1>
 
 <canvas id="myCanvas" width="400" height="400"></canvas>
 

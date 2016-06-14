@@ -12,7 +12,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "click button.size": "changeSize",
     "click button.eraser": "startErasing",
     "click button.marker": "useMarker",
-    "click button.save": "saveImg"
+    "click button.save": "saveImg",
+    "click li.img": "editImg"
   },
 
   paint: false,
@@ -32,7 +33,18 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
   curTool: "marker",
 
+  editImg: function (e) {
+    var selectedImg = $(e.currentTarget).find("img")[0];
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+    ctx.drawImage(selectedImg, 0, 0);
+
+  },
+
   saveImg: function (e) {
+    var self = this;
     var canvas = document.getElementById("myCanvas");
     var imgData = canvas.toDataURL();
 
@@ -40,8 +52,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     course.set("image", imgData);
     course.save({}, {
       success: function () {
-        console.log("saved hole image");
-
+        self.render();
       }
     });
   },
