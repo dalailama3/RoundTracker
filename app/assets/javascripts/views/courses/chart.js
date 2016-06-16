@@ -41,6 +41,17 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
     ctx.drawImage(selectedImg, 0, 0);
 
+    var key = $(selectedImg).data("key");
+
+    var editButton = $("<button>", {
+      "class": "edit",
+      "text": "Edit"
+    }).on("click", function () {
+      alert(key);
+    });
+
+    $("div.buttons").append(editButton);
+
   },
 
   saveImg: function (e) {
@@ -141,7 +152,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
     var context = canvas.getContext("2d");
     var self = this;
-    context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+    // context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     context.lineJoin = "round";
 
     for (var i=0; i < self.clickX.length; i++) {
