@@ -46,8 +46,12 @@ module Api
     def update
       @course = Course.find(params[:id])
 
+      @course.images_hash = params[:images_hash]
       if @course.update_attributes(course_params)
+
+
         render :json => @course
+
       else
         render :json => @course.errors, :status => :unprocessable_entity
       end

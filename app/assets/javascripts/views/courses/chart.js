@@ -1,7 +1,12 @@
 window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   template: JST["courses/chart"],
+  initialize: function (options) {
+    this.listenTo(this.model, 'change:images_hash', this.change);
+  },
 
-
+  change: function (e) {
+    alert("hey");
+  },
   events: {
     "mousedown canvas": "startPainting",
     "mousemove canvas": "keepPainting",
@@ -34,6 +39,8 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   curTool: "marker",
 
   editImg: function (e) {
+    var self = this;
+    var course = this.model;
     var selectedImg = $(e.currentTarget).find("img")[0];
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -42,15 +49,27 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     ctx.drawImage(selectedImg, 0, 0);
 
     var key = $(selectedImg).data("key");
+    var images_hash = this.model.get("images_hash");
 
     var editButton = $("<button>", {
       "class": "edit",
       "text": "Edit"
     }).on("click", function () {
-      alert(key);
+      images_hash[key] = document.getElementById("myCanvas").toDataURL();
+      var new_images = images_hash;
+
+
+      course.set("images_hash", new_images);
+
+      course.save({}, {
+        success: function (model, response) {
+          console.log(model.get("images_hash"));
+          self.render();
+        }
+      })
     });
 
-    $("div.buttons").append(editButton);
+    $("div.edit").html(editButton);
 
   },
 
