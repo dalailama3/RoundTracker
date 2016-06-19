@@ -1,12 +1,8 @@
 window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   template: JST["courses/chart"],
   initialize: function (options) {
-    this.listenTo(this.model, 'change:images_hash', this.change);
   },
 
-  change: function (e) {
-    alert("hey");
-  },
   events: {
     "mousedown canvas": "startPainting",
     "mousemove canvas": "keepPainting",
@@ -63,7 +59,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
       course.save({}, {
         success: function (model, response) {
-          console.log(model.get("images_hash"));
           self.render();
         }
       })
