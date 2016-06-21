@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search])
+    end
+  end
+
   def new
     @user = User.new
     render :new
@@ -20,6 +27,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password)
-
   end
 end

@@ -169,7 +169,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     // context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     context.lineJoin = "round";
 
-    for (var i=0; i < self.clickX.length; i++) {
+    for (var i = 0; i < self.clickX.length; i++) {
       context.beginPath();
       if (self.clickDrag[i] && i) {
         context.moveTo(self.clickX[i-1], self.clickY[i-1]);
