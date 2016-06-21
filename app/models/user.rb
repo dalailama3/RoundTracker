@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     ensure_session_token
   end
   has_many :rounds
-  has_many :courses, -> { distinct }, :through => :rounds
+  has_many :courses
   has_many :friendships
   has_many :friends, :through => :friendships
 
