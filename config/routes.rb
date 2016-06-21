@@ -1,7 +1,7 @@
 RoundTracker::Application.routes.draw do
 
   root to: 'static_pages#root'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
   resources :friendships, only: [:create, :destroy]
   resource :session, only: [:new, :create, :destroy]
 
