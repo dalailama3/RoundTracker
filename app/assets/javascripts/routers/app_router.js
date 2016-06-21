@@ -80,7 +80,12 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   usersSearchPage: function () {
     var users = RoundTracker.Collections.users;
+
+    users.fetch();
+    
     var searchUsers = new RoundTracker.Views.SearchUsers({collection: users});
+
+    this._swapView(searchUsers);
   },
 
 
