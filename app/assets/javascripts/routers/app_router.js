@@ -6,7 +6,8 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     "courses": "coursesIndexPage",
     "courses/new": "coursesNewPage",
     "courses/:id": "courseShowPage",
-    "courses/:id/chart":"chartCoursePage"
+    "courses/:id/chart":"chartCoursePage",
+    "users": "usersSearchPage"
 
   },
 
@@ -75,6 +76,10 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     var chartCourse = new RoundTracker.Views.CourseChart({model: course});
 
     this._swapView(chartCourse);
+  },
+
+  usersSearchPage: function () {
+    var users = RoundTracker.Collections.users;
   },
 
 
