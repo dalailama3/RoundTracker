@@ -3,7 +3,7 @@ module Api
     before_action :require_login
 
     def index
-      @courses = Course.all
+      @courses = current_user.courses
 
       render json: @courses
     end
