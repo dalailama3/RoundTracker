@@ -15,7 +15,7 @@
   <tr>
     <td>Par</td>
     <% for (var hole in parHash) { %>
-      <td><%= parHash[hole] %></td>
+      <td class="par" data-hole="<%= hole %>" contenteditable="true"><%= parHash[hole] %></td>
     <% } %>
   </tr>
 </table>

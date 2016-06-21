@@ -46,8 +46,9 @@ module Api
 
     def update
       @course = Course.find(params[:id])
-
+      @course.par_hash = params[:par_hash]
       @course.images_hash = params[:images_hash]
+      
       if @course.update_attributes(course_params)
 
 
