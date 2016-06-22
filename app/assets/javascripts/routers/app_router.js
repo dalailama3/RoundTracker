@@ -37,8 +37,10 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   editRoundPage: function (id) {
     var round = RoundTracker.Collections.rounds.getOrFetch(id);
+    var courses = RoundTracker.Collections.courses;
+    courses.fetch()
 
-    var editView = new RoundTracker.Views.RoundEdit({model: round});
+    var editView = new RoundTracker.Views.RoundEdit({model: round, courses: courses});
 
     this._swapView(editView);
   },
