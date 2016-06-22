@@ -1,4 +1,4 @@
-<h1><%= round.get("date") %></h1>
+<!-- <h1><%= round.get("date") %></h1>
 
 
 <% if (round.get("course")) { %>
@@ -17,10 +17,6 @@
 
 
 
-<% var hash = round.get("score_hash") %>
-<% var puttsHash = round.get("putts_hash") %>
-<% var fairwaysHash = round.get("fairways_hash") %>
-<% var greensHash = round.get("greens_hash") %>
 
 
 <table>
@@ -59,7 +55,13 @@
 
   </tr>
 </table>
-<br>
+<br> -->
+
+<% var scoreHash = round.get("score_hash") %>
+<% var puttsHash = round.get("putts_hash") %>
+<% var fairwaysHash = round.get("fairways_hash") %>
+<% var greensHash = round.get("greens_hash") %>
+
 
 <label for="date">Date</label>
 <input id="date" type="date" name="round[date]" value="<%= round.escape("date") %>"></input>
@@ -94,8 +96,8 @@
 
   <tr>
     <td>Score</td>
-    <% for (var hole in hash) { %>
-      <td contenteditable="true"><%= hash[hole] %></td>
+    <% for (var hole in scoreHash) { %>
+      <td class="score" data-hole="<%= hole %>" contenteditable="true"><%= scoreHash[hole] %></td>
     <% } %>
   </tr>
 
@@ -121,7 +123,7 @@
     <% if (!round.noHash("putts_hash")) { %>
       <td>Putts</td>
       <% for (var hole in puttsHash) { %>
-        <td contenteditable="true"><%= puttsHash[hole] %></td>
+        <td class="putts" data-hole="<%= hole %>" contenteditable="true"><%= puttsHash[hole] %></td>
       <% } %>
     <% } %>
   </tr>
@@ -130,5 +132,6 @@
 <br>
 
 <textarea class="notes"><%= round.get("note") %></textarea>
-
 <br>
+
+<button class="edit">Edit Round</button>

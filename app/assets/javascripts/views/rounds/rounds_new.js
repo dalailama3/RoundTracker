@@ -19,9 +19,9 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     sib.prop("checked", false);
   },
 
-  createRound: function () {
+  createRound: function (e) {
     var view = this;
-    event.preventDefault();
+    e.preventDefault();
 
     var roundData = $("form").serializeJSON()["round"];
 
