@@ -3,7 +3,7 @@
 <ul>
   <% _.each(rounds.models, function (round) { %>
     <li><%= round.escape("date") %></li>
-    <a href="#rounds/<%= round.id %>">Show Round</a>
+    <a href="#rounds/<%= round.id %>">Show |</a><a href="#rounds/<%= round.id %>/edit"> Edit<a/>
 
   <% }) %>
 </ul>

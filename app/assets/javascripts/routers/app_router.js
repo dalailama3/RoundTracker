@@ -3,6 +3,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     "": "roundsIndexPage",
     "rounds/new": "roundsNewPage",
     "rounds/:id": "roundShowPage",
+    "rounds/:id/edit" "editRoundPage",
     "courses": "coursesIndexPage",
     "courses/new": "coursesNewPage",
     "courses/:id": "courseShowPage",
@@ -82,7 +83,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     var users = RoundTracker.Collections.users;
 
     users.fetch();
-    
+
     var searchUsers = new RoundTracker.Views.SearchUsers({collection: users});
 
     this._swapView(searchUsers);
