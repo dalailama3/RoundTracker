@@ -28,13 +28,30 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
   },
 
   toggleValue: function (e) {
+    var self = this;
     var clicked = e.currentTarget;
     var val = $(clicked).text();
 
     if (val === '✓') {
       $(clicked).text('');
-    } else {
+      self.updateFairwaysOrGreens(clicked, "N");
+      } else {
       $(clicked).text('✓');
+      self.updateFairwaysOrGreens(clicked, "Y");
+    }
+  },
+
+  updateFairwaysOrGreens: function (context, val) {
+    if ($(context).data("green")) {
+      var greens = this.model.get("greens_hash");
+      var hole = $(context).data("green");
+      greens[hole] = val
+      console.log(greens);
+    } else {
+      var fairways = this.model.get("fairways_hash");
+      var hole = $(context).data("fairway");
+      fairways[hole] = val;
+      console.log(fairways);
     }
   },
 
