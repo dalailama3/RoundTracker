@@ -3,7 +3,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     "": "roundsIndexPage",
     "rounds/new": "roundsNewPage",
     "rounds/:id": "roundShowPage",
-    "rounds/:id/edit" "editRoundPage",
+    "rounds/:id/edit": "editRoundPage",
     "courses": "coursesIndexPage",
     "courses/new": "coursesNewPage",
     "courses/:id": "courseShowPage",
