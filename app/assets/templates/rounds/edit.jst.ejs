@@ -62,21 +62,22 @@
 <% var fairwaysHash = round.get("fairways_hash") %>
 <% var greensHash = round.get("greens_hash") %>
 
+<form class="edit-round">
+  <label for="date">Date</label>
+  <input id="date" type="date" name="round[date]" value="<%= round.escape("date") %>"></input>
 
-<label for="date">Date</label>
-<input id="date" type="date" name="round[date]" value="<%= round.escape("date") %>"></input>
 
+  <br>
+  <label for="round_course">Course</label>
+  <select name="round[course_id]" id="round_course">
+    <% _.each(courses.models, function (course) { %>
+      <option value="<%= course.id %>" selected="<% round.get("course_id") === course.id ? 'selected' : ' ' %>"><%= course.get("name") %></option>
+    <% }) %>
 
-<br>
-<label for="round_course">Course</label>
-<select name="round[course_id]" id="round_course">
-  <% _.each(courses.models, function (course) { %>
-    <option value="<%= course.id %>"><%= course.get("name") %></option>
-  <% }) %>
+  </select>
 
-</select>
+  <br>
 
-<br>
 
 
 <table>
@@ -131,7 +132,9 @@
 
 <br>
 
-<textarea class="notes"><%= round.get("note") %></textarea>
+<textarea class="notes" name="round[note]"><%= round.get("note") %></textarea>
 <br>
+
+</form>
 
 <button class="edit">Edit Round</button>

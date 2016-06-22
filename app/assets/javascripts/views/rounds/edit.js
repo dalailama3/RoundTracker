@@ -5,10 +5,16 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
       this.listenTo(this.courses, "sync", this.render)
   },
 
+  greens: null,
+  fairways: null,
+  scores: null,
+  putts: null,
+
   events: {
     "click td.checkable": "toggleValue",
     "blur td.score": "newScoreHash",
-    "blur td.putts": "newPuttsHash"
+    "blur td.putts": "newPuttsHash",
+    "click button.edit": "editRound"
   },
 
   newScoreHash: function (e) {
@@ -17,6 +23,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     var hole = $(target).data("hole");
     var newVal = $(target).text();
     scoreHash[hole] = $(target).text();
+    this.scores = scoreHash;
   },
 
   newPuttsHash: function (e) {
@@ -25,6 +32,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     var hole = $(target).data("hole");
     var newVal = $(target).text();
     puttsHash[hole] = $(target).text();
+    this.putts = puttsHash;
   },
 
   toggleValue: function (e) {
@@ -46,13 +54,19 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
       var greens = this.model.get("greens_hash");
       var hole = $(context).data("green");
       greens[hole] = val
-      console.log(greens);
+      this.greens = greens;
     } else {
       var fairways = this.model.get("fairways_hash");
       var hole = $(context).data("fairway");
       fairways[hole] = val;
-      console.log(fairways);
+      this.fairways = fairways;
     }
+  },
+
+  editRound: function (e) {
+    var round = this.model;
+    var inputData = $("form.edit-round").serializeJSON()["round"];
+    console.log(inputData);
   },
 
   render: function () {
