@@ -1,66 +1,10 @@
-<!-- <h1><%= round.get("date") %></h1>
-
-
-<% if (round.get("course")) { %>
-  <% var courseUrl = "#courses/" + round.get("course_id") %>
-  <% var courseName = round.get("course").name %>
-  <h2><%= courseName %></h2>
-  <% var parHash = round.get("course").par_hash %>
-  <% var parTotal = 0 %>
-  <% for (var key in parHash) { %>
-    <% parTotal += parseInt(parHash[key]) %>
-  <% } %>
-
-<% } %>
-
-<h3>Score: <%= round.get("score") %></h3>
-
-
-
-
-
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Course</th>
-    <th>Score</th>
-    <th>Par</th>
-    <% if (!round.noHash("putts_hash")) { %>
-      <th>Putts</th>
-    <% } %>
-
-    <% if (!round.noHash("fairways_hash")) { %>
-      <th>FIR</th>
-    <% } %>
-
-    <% if (!round.noHash("greens_hash")) { %>
-      <th>GIR</th>
-    <% } %>
-  </tr>
-
-  <tr>
-    <td><%= round.get("date") %></td>
-    <td><a href="#courses/<%= round.get("course_id") %>"><%= courseName %></td></a>
-    <td><%= round.get("score")%></td>
-    <td><%= parTotal %></td>
-    <% if (!round.noHash("putts_hash")) { %>
-      <td><%= round.totalPutts() %></td>
-    <% } %>
-    <% if (!round.noHash("fairways_hash")) { %>
-      <td><%= round.fairwaysCount() %></td>
-    <% } %>
-    <% if (!round.noHash("greens_hash")) { %>
-      <td><%= round.greensCount() %></td>
-    <% } %>
-
-  </tr>
-</table>
-<br> -->
-
 <% var scoreHash = round.get("score_hash") %>
 <% var puttsHash = round.get("putts_hash") %>
 <% var fairwaysHash = round.get("fairways_hash") %>
 <% var greensHash = round.get("greens_hash") %>
+<% if (round.get("course")) { %>
+  <% var parHash = round.get("course").par_hash %>
+<% } %>
 
 <form class="edit-round">
   <label for="date">Date</label>
@@ -103,30 +47,50 @@
   </tr>
 
   <tr>
-    <% if (!round.noHash("fairways_hash")) { %>
+
       <td>Fairways</td>
-      <% for (var hole in fairwaysHash) { %>
-        <td class="checkable" data-fairway="<%= hole %>"><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
+      <% if (round.noHash("fairways_hash")) { %>
+        <% for (var num = 1; num <= 18; num++) { %>
+          <td class="checkable" data-fairway="fairway<%=num%>"></td>
+        <% } %>
+      <% } else { %>
+        <% for (var hole in fairwaysHash) { %>
+          <td class="checkable" data-fairway="<%= hole %>"><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
+        <% } %>
+
       <% } %>
-    <% } %>
   </tr>
 
   <tr>
-    <% if (!round.noHash("greens_hash")) { %>
+
       <td>Greens</td>
-      <% for (var hole in greensHash) { %>
-        <td class="checkable" data-green="<%= hole %>"><%= round.renderCheckMark(greensHash[hole]) %></td>
+      <% if (round.noHash("greens_hash")) { %>
+        <% for (var num = 1; num <= 18; num++) { %>
+          <td class="checkable" data-green="greens<%=num%>"></td>
+        <% } %>
+      <% } else { %>
+        <% for (var hole in greensHash) { %>
+          <td class="checkable" data-green="<%= hole %>"><%= round.renderCheckMark(greensHash[hole]) %></td>
+        <% } %>
+
       <% } %>
-    <% } %>
+
   </tr>
 
   <tr>
-    <% if (!round.noHash("putts_hash")) { %>
+
       <td>Putts</td>
-      <% for (var hole in puttsHash) { %>
-        <td class="putts" data-hole="<%= hole %>" contenteditable="true"><%= puttsHash[hole] %></td>
+      <% if (round.noHash("putts_hash")) { %>
+        <% for (var num = 1; num <= 18; num++) { %>
+          <td class="putts" contenteditable="true" data-putt="putts<%=num%>"></td>
+        <% } %>
+      <% } else { %>
+        <% for (var hole in puttsHash) { %>
+          <td class="putts" contenteditable="true" data-putt="<%= hole %>"><%= puttsHash[hole] %></td>
+        <% } %>
+
       <% } %>
-    <% } %>
+
   </tr>
 </table>
 

@@ -64,9 +64,21 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
   },
 
   editRound: function (e) {
+    var self = this;
     var round = this.model;
     var inputData = $("form.edit-round").serializeJSON()["round"];
-    console.log(inputData);
+    var greens = this.greens || round.get("greens_hash");
+    var fairways = this.fairways || round.get("fairways_hash");
+    var putts = this.putts || round.get("putts_hash");
+    var scores = this.scores || round.get("score_hash");
+
+    round.set({greens_hash: greens, fairways_hash: fairways, putts_hash: putts, score_hash: scores});
+
+    round.save({inputData}, {
+      success: function () {
+        Backbone.history.navigate("#rounds/" + round.id, {trigger: true});
+      }
+    });
   },
 
   render: function () {

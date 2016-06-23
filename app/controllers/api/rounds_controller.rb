@@ -48,7 +48,13 @@ module Api
 
     def update
       @round = Round.find(params[:id])
-      @round.score_hash = score_hash
+      @round.score_hash = params[:score_hash]
+      @round.putts_hash = params[:putts_hash]
+      @round.greens_hash = params[:greens_hash]
+      @round.fairways_hash = params[:fairways_hash]
+      @round.score = total_score
+
+
       if @round.update_attributes(round_params)
         render json: @round
       else
@@ -63,7 +69,7 @@ module Api
 
     def total_score
       result = 0
-      params.each do |param, val|
+      params[:score_hash].each do |param, val|
         result += val.to_i if param.start_with?("score")
       end
       result

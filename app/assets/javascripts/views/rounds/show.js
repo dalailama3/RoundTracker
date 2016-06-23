@@ -1,9 +1,11 @@
 window.RoundTracker.Views.RoundShow = Backbone.View.extend({
   template: JST["rounds/show"],
   initialize: function (options) {
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync change", this.render)
   },
   events: {
+    "click a.delete": "deleteRound"
+
   },
 
   deleteRound: function () {
