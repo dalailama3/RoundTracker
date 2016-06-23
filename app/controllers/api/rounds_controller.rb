@@ -22,10 +22,10 @@ module Api
       @round = Round.new(round_params)
       @round.user_id = current_user.id
       @round.score = total_score
-      @round.score_hash = score_hash
-      @round.putts_hash = putts_hash
-      @round.greens_hash = greens_hash
-      @round.fairways_hash = fairways_hash
+      @round.score_hash = params[:score_hash]
+      @round.putts_hash = params[:putts_hash]
+      @round.greens_hash = params[:greens_hash]
+      @round.fairways_hash = params[:fairways_hash]
 
       if @round.save
         render json: @round

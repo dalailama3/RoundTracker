@@ -26,35 +26,36 @@
     <% } %>
   </tr>
 
-  <tr>
+  <tr class="scores">
     <td>Score</td>
     <% for (var num = 1; num <= 18; num++) { %>
-      <td class="score" contenteditable="true" value=""></td>
+      <td class="score" name="score<%=num%>" contenteditable="true" value=""></td>
     <% } %>
   </tr>
 
-  <tr>
+  <tr class="fairways">
     <td>FIR</td>
     <% for (var num = 1; num <= 18; num++) { %>
-      <td class="checkable" value=""></td>
+      <td class="checkable" name="fairway<%=num%>" value=""></td>
     <% } %>
   </tr>
 
-  <tr>
+  <tr class="greens">
     <td>GIR</td>
     <% for (var num = 1; num <= 18; num++) { %>
-      <td class="checkable" value=""></td>
+      <td class="checkable" name="green<%=num%>" value=""></td>
     <% } %>
   </tr>
 
-  <tr>
+  <tr class="putts">
     <td>Putts</td>
     <% for (var num = 1; num <= 18; num++) { %>
-      <td class="putts" contenteditable="true" value=""></td>
+      <td class="putts" name="putt<%=num%>" contenteditable="true" value=""></td>
     <% } %>
   </tr>
 
 </table>
+
 
 <br>
 
