@@ -16,15 +16,18 @@ window.RoundTracker.Views.SearchUsers = Backbone.View.extend({
     val = val.toLowerCase();
 
     var models = this.collection.models;
+
     var arr = [];
     _.each(models, function (model) {
-      arr.push(model.attributes.email);
+      arr.push(model.get("email"));
     });
 
     var result = [];
-    _.each(arr, function (str) {
-      if (str.startsWith(val)) {
-        result.push('<li>' + str + '</li>');
+    _.each(models, function (model) {
+      var email = model.get("email");
+      if (email.startsWith(val)) {
+        var userUrl = "#users/" + model.id;
+        result.push('<li><a href=' + userUrl + '>' + email + '</a>' + '</li>');
       }
     });
 
