@@ -101,7 +101,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
   },
 
   userShowPage: function (id) {
-    var user = RoundTracker.Collections.users.get(id);
+    var user = RoundTracker.Collections.users.getOrFetch(id);
 
     var showUser = new RoundTracker.Views.ShowUser({model: user});
 
