@@ -5,7 +5,8 @@ window.RoundTracker.Views.ShowUser = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({user: this.model});
+    var rounds = this.model.get("rounds");
+    var content = this.template({user: this.model, rounds: rounds});
     this.$el.html(content);
 
     return this;
