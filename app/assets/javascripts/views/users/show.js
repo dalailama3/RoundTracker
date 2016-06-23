@@ -1,5 +1,5 @@
 window.RoundTracker.Views.ShowUser = Backbone.View.extend({
-  template: JST["user/show"],
+  template: JST["users/show"],
   render: function () {
     var content = this.template({user: this.model});
     this.$el.html(content);
