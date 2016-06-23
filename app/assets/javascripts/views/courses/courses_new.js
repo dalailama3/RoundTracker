@@ -7,7 +7,7 @@ window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
   addCourse: function (e) {
 
     e.preventDefault();
-    var courseData = $("form").serializeJSON()["course"];
+    
     var newCourse = new RoundTracker.Models.Course();
 
     newCourse.save(courseData, {

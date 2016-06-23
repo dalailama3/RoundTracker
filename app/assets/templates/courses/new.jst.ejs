@@ -10,21 +10,12 @@
 
 
     <tr>
-      <td>Front Nine</td>
+      <td>Front</td>
       <% for (var num = 1; num <= 9; num++) { %>
         <td><%= num %></td>
       <% } %>
-    </tr>
 
-    <tr>
-      <td>Par</td>
-      <% for (var num = 1; num <= 9; num++) { %>
-        <td><input type="number" min="1" name="course[hole<%=num%>]" value= ""></td>
-      <% } %>
-    </tr>
-
-    <tr>
-      <td>Back Nine</td>
+      <td>Back</td>
       <% for (var num = 10; num <= 18; num++) { %>
         <td><%= num %></td>
       <% } %>
@@ -32,8 +23,14 @@
 
     <tr>
       <td>Par</td>
+      <% for (var num = 1; num <= 9; num++) { %>
+        <td contenteditable="true" name="course[hole<%=num%>]" value= ""></td>
+      <% } %>
+
+
+      <td></td>
       <% for (var num = 10; num <= 18; num++) { %>
-        <td><input type="number" min="1" name="course[hole<%=num%>]" value= ""></td>
+        <td contenteditable="true" name="course[hole<%=num%>]" value= ""></td>
       <% } %>
     </tr>
   </table>
