@@ -82,6 +82,21 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     round.save(inputData, {
       success: function () {
         Backbone.history.navigate("#rounds/" + round.id, {trigger: true});
+      },
+      error: function (model, response) {
+        $("html, body").animate({
+           scrollTop: 0
+       }, 200);
+        var errorsUl = $("ul.errors");
+        errorsUl.empty();
+        var errors = response.responseJSON;
+
+        _.each(errors, function (error) {
+
+          var li = $("<li>").text(error);
+          errorsUl.append(li);
+
+        });
       }
     });
   },
