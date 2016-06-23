@@ -84,30 +84,30 @@
   </tr>
 
   <tr>
-    <% if (!round.noHash("fairways_hash")) { %>
-      <td>Fairways</td>
-      <% for (var hole in fairwaysHash) { %>
-        <td><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
-      <% } %>
+
+    <td>Fairways</td>
+    <% for (var hole in fairwaysHash) { %>
+      <td><%= fairwaysHash[hole] %></td>
     <% } %>
+
   </tr>
 
   <tr>
-    <% if (!round.noHash("greens_hash")) { %>
-      <td>Greens</td>
-      <% for (var hole in greensHash) { %>
-        <td><%= round.renderCheckMark(greensHash[hole]) %></td>
-      <% } %>
+
+    <td>Greens</td>
+    <% for (var hole in greensHash) { %>
+      <td><%= greensHash[hole] %></td>
     <% } %>
+
   </tr>
 
   <tr>
-    <% if (!round.noHash("putts_hash")) { %>
-      <td>Putts</td>
-      <% for (var hole in puttsHash) { %>
-        <td><%= puttsHash[hole] %></td>
-      <% } %>
+
+    <td>Putts</td>
+    <% for (var hole in puttsHash) { %>
+      <td><%= puttsHash[hole] %></td>
     <% } %>
+
   </tr>
 </table>
 
