@@ -10,6 +10,7 @@
 <br>
 <label for="round_course">Course</label>
 <select name="round[course_id]" id="round_course">
+  <option selected value="" disabled>Select Course--</option>
   <% _.each(courses.models, function (course) { %>
     <option value="<%= course.id %>"><%= course.get("name") %></option>
   <% }) %>

@@ -2,9 +2,11 @@
 <% var puttsHash = round.get("putts_hash") %>
 <% var fairwaysHash = round.get("fairways_hash") %>
 <% var greensHash = round.get("greens_hash") %>
+<% var courseId = round.get("course_id") %>
 <% if (round.get("course")) { %>
   <% var parHash = round.get("course").par_hash %>
 <% } %>
+
 <ul class="errors"></ul>
 <form class="edit-round">
   <label for="date">Date</label>
@@ -15,7 +17,7 @@
   <label for="round_course">Course</label>
   <select name="round[course_id]" id="round_course">
     <% _.each(courses.models, function (course) { %>
-      <option value="<%= course.id %>" selected="<% round.get("course_id") === course.id ? 'selected' : ' ' %>"><%= course.get("name") %></option>
+      <option selected='<% course.id === courseId ? "selected" : "false" %>' value="<%= course.id %>"><%= course.get("name") %></option>
     <% }) %>
 
   </select>

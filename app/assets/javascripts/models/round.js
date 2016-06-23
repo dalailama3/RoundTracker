@@ -9,7 +9,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     }
     return true;
   },
-  
+
   noHash: function (hashType) {
     var self = this;
     var hash = self.get(hashType);
@@ -23,7 +23,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     var hash = self.get("fairways_hash");
     var count = 0;
     for (var key in hash) {
-      if (hash[key] === "Y") {
+      if (hash[key] === "✓") {
         count += 1;
       }
     }
@@ -45,7 +45,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     var hash = self.get("greens_hash");
     var count = 0;
     for (var key in hash) {
-      if (hash[key] === "Y") {
+      if (hash[key] === "✓") {
         count += 1;
       }
     }
