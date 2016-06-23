@@ -21,16 +21,16 @@
       <% } %>
     </tr>
 
-    <tr>
+    <tr class="pars">
       <td>Par</td>
       <% for (var num = 1; num <= 9; num++) { %>
-        <td contenteditable="true" name="course[hole<%=num%>]" value= ""></td>
+        <td class="par" contenteditable="true" name="hole<%=num%>" value= ""></td>
       <% } %>
 
 
       <td></td>
       <% for (var num = 10; num <= 18; num++) { %>
-        <td contenteditable="true" name="course[hole<%=num%>]" value= ""></td>
+        <td class="par" contenteditable="true" name="hole<%=num%>" value= ""></td>
       <% } %>
     </tr>
   </table>

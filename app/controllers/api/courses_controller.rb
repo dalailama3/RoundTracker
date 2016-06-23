@@ -48,7 +48,7 @@ module Api
       @course = Course.find(params[:id])
       @course.par_hash = params[:par_hash]
       @course.images_hash = params[:images_hash]
-      
+
       if @course.update_attributes(course_params)
 
 
@@ -69,7 +69,7 @@ module Api
 
     def par_hash
       par_hash = {}
-      params.each do |param, val|
+      params[:par_hash].each do |param, val|
         if param.start_with?("hole")
           par_hash[param] = val
         end
