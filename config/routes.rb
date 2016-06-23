@@ -8,6 +8,6 @@ RoundTracker::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :rounds
     resources :courses
-    resources :users, only: [:index]
+    resources :users, only: [:index, :show]
   end
 end

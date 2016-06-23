@@ -9,7 +9,11 @@ window.RoundTracker.Collections.Users = Backbone.Collection.extend({
       user.fetch();
     } else {
       user = new RoundTracker.Models.User({id: id});
-      user.fetch();
+      user.fetch({
+        success: function () {
+          console.log("hey");
+        }
+      });
     }
     return user;
 
