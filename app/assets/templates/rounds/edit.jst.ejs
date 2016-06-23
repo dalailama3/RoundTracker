@@ -42,55 +42,31 @@
   <tr>
     <td>Score</td>
     <% for (var hole in scoreHash) { %>
-      <td class="score" data-hole="<%= hole %>" contenteditable="true"><%= scoreHash[hole] %></td>
+      <td class="score" name="<%=hole%>" contenteditable="true"><%= scoreHash[hole] %></td>
     <% } %>
   </tr>
 
   <tr>
+    <td>Fairways</td>
 
-      <td>Fairways</td>
-      <% if (round.noHash("fairways_hash")) { %>
-        <% for (var num = 1; num <= 18; num++) { %>
-          <td class="checkable" data-fairway="fairway<%=num%>"></td>
-        <% } %>
-      <% } else { %>
-        <% for (var hole in fairwaysHash) { %>
-          <td class="checkable" data-fairway="<%= hole %>"><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
-        <% } %>
-
-      <% } %>
-  </tr>
-
-  <tr>
-
-      <td>Greens</td>
-      <% if (round.noHash("greens_hash")) { %>
-        <% for (var num = 1; num <= 18; num++) { %>
-          <td class="checkable" data-green="greens<%=num%>"></td>
-        <% } %>
-      <% } else { %>
-        <% for (var hole in greensHash) { %>
-          <td class="checkable" data-green="<%= hole %>"><%= round.renderCheckMark(greensHash[hole]) %></td>
-        <% } %>
-
-      <% } %>
+    <% for (var hole in fairwaysHash) { %>
+      <td class="checkable" name="<%= hole %>"><%= round.renderCheckMark(fairwaysHash[hole]) %></td>
+    <% } %>
 
   </tr>
 
   <tr>
+    <td>Greens</td>
+    <% for (var hole in greensHash) { %>
+      <td class="checkable" name="<%= hole %>"><%= round.renderCheckMark(greensHash[hole]) %></td>
+    <% } %>
+  </tr>
 
-      <td>Putts</td>
-      <% if (round.noHash("putts_hash")) { %>
-        <% for (var num = 1; num <= 18; num++) { %>
-          <td class="putts" contenteditable="true" data-putt="putts<%=num%>"></td>
-        <% } %>
-      <% } else { %>
-        <% for (var hole in puttsHash) { %>
-          <td class="putts" contenteditable="true" data-putt="<%= hole %>"><%= puttsHash[hole] %></td>
-        <% } %>
-
-      <% } %>
-
+  <tr>
+    <td>Putts</td>
+    <% for (var hole in puttsHash) { %>
+      <td class="putts" contenteditable="true" name="<%= hole %>"><%= puttsHash[hole] %></td>
+    <% } %>
   </tr>
 </table>
 
