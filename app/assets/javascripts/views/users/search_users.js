@@ -14,6 +14,8 @@ window.RoundTracker.Views.SearchUsers = Backbone.View.extend({
     e.preventDefault();
     var val = $("#search_users").val();
     val = val.toLowerCase();
+    var current_user_email = $("div#user-email").text();
+
 
     var models = this.collection.models;
 
@@ -25,7 +27,7 @@ window.RoundTracker.Views.SearchUsers = Backbone.View.extend({
     var result = [];
     _.each(models, function (model) {
       var email = model.get("email");
-      if (email.startsWith(val)) {
+      if (email !== current_user_email && email.startsWith(val)) {
         var userUrl = "#users/" + model.id;
         result.push('<li><a href=' + userUrl + '>' + email + '</a>' + '</li>');
       }
