@@ -28,5 +28,7 @@
   <button class='delete'>Delete Course</button>
   <a href="#courses/<%= course.id %>/chart">Chart Course</a>
 <% } else { %>
+  <a href="#users/<%= course_user_id %>">Back</a>
+  <br>
   <a href="#courses/<%= course.id %>/chart">See Charted Holes</a>
 <% } %>
