@@ -27,4 +27,6 @@
 <% if (current_user_id === course_user_id ) { %>
   <button class='delete'>Delete Course</button>
   <a href="#courses/<%= course.id %>/chart">Chart Course</a>
+<% } else { %>
+  <a href="#courses/<%= course.id %>/chart">See Charted Holes</a>
 <% } %>
