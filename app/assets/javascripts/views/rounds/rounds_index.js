@@ -6,7 +6,9 @@ window.RoundTracker.Views.RoundsIndex = Backbone.View.extend({
 
 
   render: function () {
-    var content = this.template({rounds: this.collection});
+    var current_user_email = $("div#user-email").text();
+
+    var content = this.template({rounds: this.collection, current_user_email: current_user_email});
     this.$el.html(content);
 
     return this;

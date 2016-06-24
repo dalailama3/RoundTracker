@@ -33,6 +33,7 @@
   </div>
   <% if logged_in? %>
     <div id="user"><%= current_user.id %></div>
+    <div id="user-email"><%= current_user.email %></div>
   <% end %>
 
 </body>
