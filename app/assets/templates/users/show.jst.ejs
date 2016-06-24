@@ -11,3 +11,11 @@
 
 
 <h3>Courses</h3>
+
+<ul>
+  <% _.each(courses, function (course) { %>
+    <li><a href="#courses/<%= course.id %>"><%= course.name %></a></li>
+  <% }) %>
+
+
+</ul>
