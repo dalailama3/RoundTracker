@@ -1,0 +1,118 @@
+<a href="#users/<%= user.id %>">Back</a>
+
+<h1><%= round.get("date") %></h1>
+
+
+<% if (round.get("course")) { %>
+  <% var courseUrl = "#courses/" + round.get("course_id") %>
+  <% var courseName = round.get("course").name %>
+  <h2><%= courseName %></h2>
+  <% var parHash = round.get("course").par_hash %>
+  <% var parTotal = 0 %>
+  <% for (var key in parHash) { %>
+    <% parTotal += parseInt(parHash[key]) %>
+  <% } %>
+
+<% } %>
+
+<h3>Score: <%= round.get("score") %></h3>
+
+
+
+<% var hash = round.get("score_hash") %>
+<% var puttsHash = round.get("putts_hash") %>
+<% var fairwaysHash = round.get("fairways_hash") %>
+<% var greensHash = round.get("greens_hash") %>
+
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Course</th>
+    <th>Score</th>
+    <th>Par</th>
+    <% if (!round.noHash("putts_hash")) { %>
+      <th>Putts</th>
+    <% } %>
+
+    <% if (!round.noHash("fairways_hash")) { %>
+      <th>FIR</th>
+    <% } %>
+
+    <% if (!round.noHash("greens_hash")) { %>
+      <th>GIR</th>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td><%= round.get("date") %></td>
+    <td><a href="#courses/<%= round.get("course_id") %>"><%= courseName %></td></a>
+    <td><%= round.get("score")%></td>
+    <td><%= parTotal %></td>
+    <% if (!round.noHash("putts_hash")) { %>
+      <td><%= round.totalPutts() %></td>
+    <% } %>
+    <% if (!round.noHash("fairways_hash")) { %>
+      <td><%= round.fairwaysCount() %></td>
+    <% } %>
+    <% if (!round.noHash("greens_hash")) { %>
+      <td><%= round.greensCount() %></td>
+    <% } %>
+
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td>Holes</td>
+    <% for (var num = 1; num <= 18; num++) { %>
+      <td><%= num %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Par</td>
+    <% for (var hole in parHash) { %>
+      <td><%= parHash[hole] %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+    <td>Score</td>
+    <% for (var hole in hash) { %>
+      <td><%= hash[hole] %></td>
+    <% } %>
+  </tr>
+
+  <tr>
+
+    <td>Fairways</td>
+    <% for (var hole in fairwaysHash) { %>
+      <td><%= fairwaysHash[hole] %></td>
+    <% } %>
+
+  </tr>
+
+  <tr>
+
+    <td>Greens</td>
+    <% for (var hole in greensHash) { %>
+      <td><%= greensHash[hole] %></td>
+    <% } %>
+
+  </tr>
+
+  <tr>
+
+    <td>Putts</td>
+    <% for (var hole in puttsHash) { %>
+      <td><%= puttsHash[hole] %></td>
+    <% } %>
+
+  </tr>
+</table>
+
+<br>
+
+<textarea class="notes"><%= round.get("note") %></textarea>
