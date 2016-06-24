@@ -33,7 +33,9 @@ window.RoundTracker.Views.CourseShow = Backbone.View.extend({
 
 
   render: function () {
-    var content = this.template({course: this.model});
+    var current_user = $("div#user").html();
+
+    var content = this.template({course: this.model, current_user_id: current_user});
     this.$el.html(content);
 
     return this;
