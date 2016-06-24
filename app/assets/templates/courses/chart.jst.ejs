@@ -1,32 +1,44 @@
 <% var images = course.get("images_hash") %>
 
-<div class="sidebar">
-  <% for (var img in images) { %>
-    <li class="img"><%= img %><img src="<%= images[img] %>" data-key="<%= img %>"></li>
+<% var course_user_id = course.escape("user_id") %>
+<% if (current_user_id === course_user_id ) { %>
+
+  <div class="sidebar">
+    <% for (var img in images) { %>
+      <li class="img"><%= img %><img src="<%= images[img] %>" data-key="<%= img %>"></li>
+  <% } %>
+  </div>
+
+  <div class="buttons">
+    <button class="clear">Clear</button>
+
+    <button class="color">Green</button>
+    <button class="color">Brown</button>
+    <button class="color">Yellow</button>
+    <button class="color">Purple</button>
+
+    <button class="size">Thin</button>
+    <button class="size">Normal</button>
+    <button class="size">Thick</button>
+    <button class="size">Broad</button>
+
+    <button class="eraser">Eraser</button>
+    <button class="marker">Marker</button>
+    <button class="save">Save</button>
+  </div>
+
+
+  <div class="edit"></div>
+
+  <h1 class="chart-title">Chart <%= course.get("name") %></h1>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+<% } else { %>
+
+  <div class="sidebar">
+    <% for (var img in images) { %>
+      <li class="img"><%= img %><img src="<%= images[img] %>" data-key="<%= img %>"></li>
+  <% } %>
+  </div>
+
+  <canvas id="myCanvas" width="400" height="400"></canvas>
 <% } %>
-</div>
-
-<div class="buttons">
-  <button class="clear">Clear</button>
-
-  <button class="color">Green</button>
-  <button class="color">Brown</button>
-  <button class="color">Yellow</button>
-  <button class="color">Purple</button>
-
-  <button class="size">Thin</button>
-  <button class="size">Normal</button>
-  <button class="size">Thick</button>
-  <button class="size">Broad</button>
-
-  <button class="eraser">Eraser</button>
-  <button class="marker">Marker</button>
-  <button class="save">Save</button>
-</div>
-
-
-<div class="edit"></div>
-
-<h1 class="chart-title">Chart <%= course.get("name") %></h1>
-
-<canvas id="myCanvas" width="400" height="400"></canvas>
