@@ -4,11 +4,11 @@ window.RoundTracker.Views.RoundShow = Backbone.View.extend({
     this.listenTo(this.model, "sync change", this.render)
   },
   events: {
-    "click a.delete": "deleteRound"
-
+    "click button#delete": "deleteRound"
   },
 
-  deleteRound: function () {
+  deleteRound: function (e) {
+    e.preventDefault();
     this.model.destroy({success: function (model, response) {
       self.collection.remove(self);
     }});
