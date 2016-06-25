@@ -3,14 +3,22 @@ window.RoundTracker.Views.RoundShow = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.model, "sync change", this.render)
   },
+
   events: {
     "click button#delete": "deleteRound"
   },
 
   deleteRound: function (e) {
     e.preventDefault();
+    $( '#myModal' ).remove();
+    $( '.modal-backdrop' ).remove();
+    $( 'body' ).removeClass( "modal-open" );
+
+    var self = this;
     this.model.destroy({success: function (model, response) {
-      self.collection.remove(self);
+      self.collection.remove(model);
+      Backbone.history.navigate("#", {trigger: true});
+
     }});
   },
 

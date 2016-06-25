@@ -122,7 +122,7 @@
 <a class="edit" href="#rounds/<%= round.id%>/edit">Edit</a>
 
 
-<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Delete Round</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -135,7 +135,8 @@
       </div>
       <div class="modal-body">
         <p>Are you sure you want to delete?</p>
-        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+        <button id="delete" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
