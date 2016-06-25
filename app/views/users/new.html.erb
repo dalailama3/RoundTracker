@@ -1,17 +1,14 @@
-<h1>Sign Up</h1>
+<h1>Create an Account <%= image_tag("jquery-icons/red-golf-flag-vector-1953189.jpg")%></h1>
 
 <form action="<%= users_url %>" method="POST">
-  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>"
-  <label>Email
-    <input type="text" name="user[email]">
-  </label>
-  <br>
-  <label>Password
-    <input type="password" name="user[password]">
-  </label>
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>">
+  <div class="form-group">
+    <input type="text" name="user[email]" class="form-control" placeholder="E-mail" value="">
+    <input type="password" name="user[password]" class="form-control" placeholder="Password">
 
-  <input type="submit">
-
-  <%= image_tag("jquery-icons/red-golf-flag-vector-1953189.jpg")%>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-block btn-success">Sign Up</button>
+  </div>
 
 </form>
