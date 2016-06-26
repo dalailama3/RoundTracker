@@ -1,3 +1,13 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% @user.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Create an Account <%= image_tag("jquery-icons/red-golf-flag-vector-1953189.jpg")%></h1>
 
 <form action="<%= users_url %>" method="POST">
