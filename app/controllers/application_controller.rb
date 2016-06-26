@@ -26,8 +26,12 @@ class ApplicationController < ActionController::Base
     email = params[:user][:email]
     password = params[:user][:password]
     user = User.find_by_credentials(email, password)
+    if user
+      self.session[:session_token] = user.reset_session_token!
+    else
+      return false
+    end
 
-    self.session[:session_token] = user.reset_session_token!
   end
 
   def log_out!

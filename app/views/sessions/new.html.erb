@@ -1,4 +1,9 @@
 <body class="signin">
+<% if flash[:danger] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
 <h1>Welcome Back!</h1>
 
 <form action="<%= session_url %>" method="POST">
