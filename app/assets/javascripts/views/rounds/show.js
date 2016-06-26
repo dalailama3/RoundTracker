@@ -17,7 +17,7 @@ window.RoundTracker.Views.RoundShow = Backbone.View.extend({
     var self = this;
     this.model.destroy({success: function (model, response) {
       self.collection.remove(model);
-      Backbone.history.navigate("#", {trigger: true});
+      Backbone.history.navigate("#rounds", {trigger: true});
 
     }});
   },

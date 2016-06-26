@@ -9,7 +9,6 @@ module Api
 
     def show
       @round = Round.find(params[:id])
-      render json: @round
     end
 
     def new

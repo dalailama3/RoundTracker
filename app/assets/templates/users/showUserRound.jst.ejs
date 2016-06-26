@@ -3,9 +3,10 @@
 <h1><%= round.get("date") %></h1>
 
 
-<% if (round.get("course")) { %>
+<% if (round.has("course")) { %>
   <% var courseUrl = "#courses/" + round.get("course_id") %>
   <% var courseName = round.get("course").name %>
+  <% var courseId = round.get("course_id") %>
   <h2><%= courseName %></h2>
   <% var parHash = round.get("course").par_hash %>
   <% var parTotal = 0 %>
@@ -47,7 +48,7 @@
 
   <tr>
     <td><%= round.get("date") %></td>
-    <td><a href="#courses/<%= round.get("course_id") %>"><%= courseName %></a></td>
+    <td><a href="#courses/<%= courseId %>"><%= courseName %></a></td>
     <td><%= round.get("score")%></td>
     <td><%= parTotal %></td>
     <% if (!round.noHash("putts_hash")) { %>

@@ -2,12 +2,11 @@
 
 <h1>My Rounds</h1>
 
-<ul>
+<div class="list-group">
   <% _.each(rounds.models, function (round) { %>
-    <li><%= round.escape("date") %></li>
-    <a href="#rounds/<%= round.id %>">Show |</a><a href="#rounds/<%= round.id %>/edit"> Edit<a/>
+    <a class="list-group-item" href="#rounds/<%= round.id %>"><%= round.escape("date") %></a>
 
   <% }) %>
-</ul>
+</div>
 
-<a href="#rounds/new">Add a Round</a>
+<a class="btn btn-primary" role="button" href="#rounds/new">Add a Round</a>

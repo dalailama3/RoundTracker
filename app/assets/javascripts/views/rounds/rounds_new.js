@@ -73,7 +73,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     e.preventDefault();
 
     var inputData = $("form").serializeJSON()["round"];
-    
+
     var round = new RoundTracker.Models.Round();
 
     var greens = this.getGreens();
@@ -86,7 +86,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
 
     round.save(inputData, {
       success: function () {
-        Backbone.history.navigate("#", {trigger: true});
+        Backbone.history.navigate("#rounds", {trigger: true});
       },
       error: function (model, response) {
         $("html, body").animate({
