@@ -15,6 +15,7 @@
 
 <% } %>
 
+
 <h3>Score: <%= round.get("score") %></h3>
 
 
@@ -25,7 +26,7 @@
 <% var greensHash = round.get("greens_hash") %>
 
 
-<table>
+<table class="table">
   <tr>
     <th>Date</th>
     <th>Course</th>
@@ -46,7 +47,7 @@
 
   <tr>
     <td><%= round.get("date") %></td>
-    <td><a href="#courses/<%= round.get("course_id") %>"><%= courseName %></td></a>
+    <td><a href="#courses/<%= round.get("course_id") %>"><%= courseName %></a></td>
     <td><%= round.get("score")%></td>
     <td><%= parTotal %></td>
     <% if (!round.noHash("putts_hash")) { %>
@@ -63,7 +64,7 @@
 </table>
 <br>
 
-<table>
+<table class="table">
   <tr>
     <td>Holes</td>
     <% for (var num = 1; num <= 18; num++) { %>

@@ -9,8 +9,7 @@ module Api
 
     def show
       @round = Round.find(params[:id])
-      @diffs = @round.differentials
-
+      render json: @round
     end
 
     def new

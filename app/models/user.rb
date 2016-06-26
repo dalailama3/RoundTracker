@@ -2,12 +2,12 @@ class User < ActiveRecord::Base
   after_initialize do
     ensure_session_token
   end
-  validates :email, presence: true, uniqueness: true  
+  validates :email, presence: true, uniqueness: true
   validates :email, length: { minimum: 6, too_short: "must have at least %{count} characters" }
   validate :password_check_length
 
-  has_many :rounds
-  has_many :courses
+  has_many :rounds, dependent: :destroy
+  has_many :courses, dependent: :destroy
   has_many :friendships
   has_many :friends, :through => :friendships
 

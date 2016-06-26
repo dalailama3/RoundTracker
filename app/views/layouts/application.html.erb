@@ -10,6 +10,8 @@
     <div class="nav-right">
       <div class="pull-right">
         <% if logged_in? %>
+
+          <li><%= image_tag("jquery-icons/red-golf-flag-vector-1953189.jpg") %></li>
           <li><%= link_to "Sign Out", session_url, method: :delete %></li>
 
         <% else %>
