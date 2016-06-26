@@ -3,11 +3,19 @@ class User < ActiveRecord::Base
     ensure_session_token
   end
   validates :email, length: { minimum: 6, too_short: "must have at least %{count} characters" }
+  validate :password_check_length
 
   has_many :rounds
   has_many :courses
   has_many :friendships
   has_many :friends, :through => :friendships
+
+  def password_check_length
+    if self.password_digest == nil
+      errors[:base] << "Password must be at least 6 characters"
+    end
+
+  end
 
   def reset_session_token!
     self.session_token = SecureRandom::urlsafe_base64
@@ -23,8 +31,6 @@ class User < ActiveRecord::Base
 
     if password.length >= 6
       self.password_digest = BCrypt::Password.create(password)
-    else
-      errors.messages[:password] = "Password must be at least 6 characters"
     end
 
   end
