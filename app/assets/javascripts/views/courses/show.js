@@ -4,11 +4,14 @@ window.RoundTracker.Views.CourseShow = Backbone.View.extend({
     this.listenTo(this.model, "sync change", this.render)
   },
   events: {
-    "click button.delete": "deleteCourse",
+    "click button#delete": "deleteCourse",
     "blur td.par": "editParHash"
   },
 
   deleteCourse: function (e) {
+    $( '#myModal' ).remove();
+    $( '.modal-backdrop' ).remove();
+    $( 'body' ).removeClass( "modal-open" );
     this.model.destroy({
       success: function () {
         Backbone.history.navigate("#courses", {trigger: true});

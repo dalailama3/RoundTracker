@@ -1,18 +1,15 @@
-
-
-
 <h1>Welcome Back!</h1>
 
-
 <form action="<%= session_url %>" method="POST">
-  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>"
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>">
   <div class="form-group">
     <input type="text" name="user[email]" class="form-control" placeholder="E-mail" value="">
     <input type="password" name="user[password]" class="form-control" placeholder="Password">
-
   </div>
 
   <div class="form-group">
     <button type="submit" class="btn btn-block btn-success">Sign In</button>
   </div>
 </form>
+
+<a href="<%= new_user_url %>">Don't have an account?</a> or did you <a href="#">Forget your password?</a>

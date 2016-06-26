@@ -4,7 +4,7 @@
 
 <% var parHash = course.get("par_hash") %>
 
-<table>
+<table class="table">
   <tr>
     <td>Holes</td>
     <% for (var num = 1; num <= 18; num++) { %>
@@ -25,7 +25,30 @@
 <% var course_user_id = course.escape("user_id") %>
 
 <% if (current_user_id === course_user_id ) { %>
-  <button class='delete'>Delete Course</button>
+  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Delete Course</button>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+          <button id="delete" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <a href="#courses/<%= course.id %>/chart">Chart Course</a>
 <% } else { %>
   <a href="#users/<%= course_user_id %>">Back</a>
