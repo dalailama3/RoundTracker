@@ -10,9 +10,11 @@
   <ul class="errors"></ul>
 </div>
 <form class="edit-round">
-  <label for="date">Date</label>
-  <input id="date" type="date" name="round[date]" value="<%= round.escape("date") %>"></input>
 
+  <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-calendar" id="basic-addon1"></span>
+    <input id="date" type="date" class="form-control" name="round[date]" value="<%= round.escape("date") %>" aria-describedby="basic-addon1">
+  </div>
 
   <br>
   <label for="round_course">Course</label>
@@ -87,4 +89,4 @@
 
 </form>
 
-<button id="edit" class="btn btn-primary">Edit Round</button>
+<button id="edit" class="btn btn-primary">Update Round</button>
