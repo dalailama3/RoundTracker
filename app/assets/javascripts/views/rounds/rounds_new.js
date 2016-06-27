@@ -5,7 +5,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     this.listenTo(this.courses, "sync", this.render)
   },
   events: {
-    "submit form": "createRound",
+    "click button#create-round": "createRound",
     "click td#green": "toggleBullseye",
     "click td#fairway": "toggleCheckmark"
   },
@@ -93,6 +93,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
         $("html, body").animate({
            scrollTop: 0
        }, 200);
+        $("div#errors").removeClass("hidden");
         var errorsUl = $("ul.errors");
         errorsUl.empty();
         var errors = response.responseJSON;
