@@ -6,7 +6,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
   },
   events: {
     "submit form": "createRound",
-    "click td.checkable": "toggleValue"
+    "click td#green": "toggleBullseye"
   },
 
   getScores: function () {
@@ -49,22 +49,32 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     var tds = $("tr.greens").find("td.checkable");
     _.each(tds, function (td) {
       var key = $(td).attr("name");
-      var val = $(td).text();
-      greens[key] = val;
+      $(td).hasClass("bullseye") ? greens[key] = "Y": greens[key] = "N";
     });
     return greens;
+  },
+
+  toggleBullseye: function (e) {
+    var self = this;
+    var clicked = e.currentTarget;
+    var $clicked = $(clicked)
+    $clicked.toggleClass("bullseye");
   },
 
 
   toggleValue: function (e) {
     var self = this;
     var clicked = e.currentTarget;
-    var val = $(clicked).text();
+    var $clicked = $(clicked)
+    var val = $clicked.text();
+    $clicked.toggleClass("bullseye");
+    // $clicked.addClass("hide");
 
     if (val === '✓') {
-      $(clicked).text('');
+      $clicked.text('');
+
       } else {
-      $(clicked).text('✓');
+      $clicked.text('✓');
     }
   },
 

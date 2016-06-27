@@ -192,6 +192,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickSize = [];
 
     var current_user = $("div#user").text();
+
     var content = this.template({course: this.model, current_user_id: current_user});
     this.$el.html(content);
 

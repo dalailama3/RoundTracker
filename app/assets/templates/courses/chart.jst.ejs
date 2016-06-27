@@ -28,7 +28,6 @@
   </div>
 
   <div class="edit"></div>
-<!-- /Users/johnclark/RoundTracker/vendor/assets/images/red-golf-flag-vector-1953189.jpg -->
   <h1 class="chart-title">Chart <%= course.get("name") %></h1>
   <div class="jquery-ui-images">
     <ul class="golf-icons">
@@ -40,12 +39,16 @@
 
 
 <% } else { %>
+  <% if (images !== null) { %>
+    <div class="sidebar">
+      <% for (var img in images) { %>
+        <li class="img"><%= img %><img src="<%= images[img] %>" data-key="<%= img %>"></li>
+    <% } %>
+    </div>
 
-  <div class="sidebar">
-    <% for (var img in images) { %>
-      <li class="img"><%= img %><img src="<%= images[img] %>" data-key="<%= img %>"></li>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+  <% }  else { %>
+    <p>No charted holes for this course</p>
   <% } %>
-  </div>
 
-  <canvas id="myCanvas" width="400" height="400"></canvas>
 <% } %>

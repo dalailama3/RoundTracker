@@ -7,7 +7,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
 
   events: {
     "click td.checkable": "toggleValue",
-    "click button.edit": "editRound"
+    "click button#edit": "editRound"
   },
 
   getScores: function () {

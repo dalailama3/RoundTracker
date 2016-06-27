@@ -117,3 +117,7 @@ div.form-group {
 div.list-group {
   width: 500px;
 }
+
+.bullseye:after {
+  content: asset_url("jquery-icons/bullseye-1.jpg");
+}
