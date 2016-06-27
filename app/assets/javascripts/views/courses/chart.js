@@ -48,7 +48,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     var images_hash = this.model.get("images_hash");
 
     var editButton = $("<button>", {
-      "class": "edit",
+      "class": "edit btn btn-default",
       "text": "Edit"
     }).on("click", function () {
       images_hash[key] = document.getElementById("myCanvas").toDataURL();
