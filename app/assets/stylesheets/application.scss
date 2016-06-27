@@ -115,7 +115,33 @@ div.form-group {
 }
 
 div.list-group {
+  position: relative;
   width: 500px;
+}
+
+div.icons-container {
+  position: absolute;
+  left: 400px;
+  top: 22px;
+}
+
+span.score {
+  font-size: 25px;
+  color: steelblue;
+}
+
+span.arrow {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.flagstick:after {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  content: "";
+  background: asset_url("jquery-icons/red-golf-flag");
+  background-size: 100%;
 }
 
 .bullseye:after {

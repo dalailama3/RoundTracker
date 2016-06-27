@@ -4,12 +4,21 @@
 
 <div class="list-group">
   <% _.each(rounds.models, function (round) { %>
+
     <a href="#rounds/<%= round.id %>" class="list-group-item">
       <h4 class="list-group-item-heading"><%= round.escape("date") %></h4>
-      <span class="label label-default label-pill pull-xs-right">1</span>
+      <h4><%= round.get("course").name %></h4>
+      <div class="icons-container"
+        <span class="pull-right">
+          <span class="flagstick"></span>
+          <span class="score"><%= round.escape("score") %></span>
+          <span class="arrow glyphicon glyphicon-chevron-right"></span>
+        </span>
+      </div>
     </a>
 
   <% }) %>
 </div>
+<br>
 
 <a class="btn btn-primary" role="button" href="#rounds/new">Add a Round</a>
