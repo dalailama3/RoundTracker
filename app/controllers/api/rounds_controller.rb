@@ -4,7 +4,7 @@ module Api
     def index
       @rounds = current_user.rounds
 
-      render json: @rounds
+      # render json: @rounds
     end
 
     def show

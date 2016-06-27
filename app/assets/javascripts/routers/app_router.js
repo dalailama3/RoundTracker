@@ -20,9 +20,8 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
     var rounds = RoundTracker.Collections.rounds;
     rounds.fetch();
+
     var indexView = new RoundTracker.Views.RoundsIndex({collection: rounds});
-
-
 
     this._swapView(indexView);
   },

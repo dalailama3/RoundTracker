@@ -4,7 +4,10 @@
 
 <div class="list-group">
   <% _.each(rounds.models, function (round) { %>
-    <a class="list-group-item" href="#rounds/<%= round.id %>"><%= round.escape("date") %></a>
+    <a href="#rounds/<%= round.id %>" class="list-group-item">
+      <h4 class="list-group-item-heading"><%= round.escape("date") %></h4>
+      <span class="label label-default label-pill pull-xs-right">1</span>
+    </a>
 
   <% }) %>
 </div>
