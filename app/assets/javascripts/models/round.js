@@ -23,7 +23,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     var hash = self.get("fairways_hash");
     var count = 0;
     for (var key in hash) {
-      if (hash[key] === "✓") {
+      if (hash[key] === "Y") {
         count += 1;
       }
     }
@@ -45,7 +45,7 @@ window.RoundTracker.Models.Round = Backbone.Model.extend({
     var hash = self.get("greens_hash");
     var count = 0;
     for (var key in hash) {
-      if (hash[key] === "✓") {
+      if (hash[key] === "Y") {
         count += 1;
       }
     }
