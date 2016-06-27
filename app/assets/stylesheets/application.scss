@@ -121,3 +121,7 @@ div.list-group {
 .bullseye:after {
   content: asset_url("jquery-icons/bullseye-1.jpg");
 }
+
+.checkmark:after {
+  content: asset_url("jquery-icons/green-check-mark.jpg");
+}
