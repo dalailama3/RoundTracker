@@ -91,7 +91,12 @@
 
     <td>Fairways</td>
     <% for (var hole in fairwaysHash) { %>
-      <td><%= fairwaysHash[hole] %></td>
+      <% if (fairwaysHash[hole] === "Y") { %>
+        <td class="checkmark"></td>
+      <% } else { %>
+        <td></td>
+      <% } %>
+
     <% } %>
 
   </tr>
@@ -100,7 +105,11 @@
 
     <td>Greens</td>
     <% for (var hole in greensHash) { %>
-      <td><%= greensHash[hole] %></td>
+      <% if (greensHash[hole] === "Y") { %>
+        <td class="bullseye"></td>
+      <% } else { %>
+        <td></td>
+      <% } %>
     <% } %>
 
   </tr>
