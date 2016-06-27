@@ -34,7 +34,7 @@ table input {
 
 td, th {
   border: 1px solid #CCC;
-  // height: 30px;
+  height: 35px;
   width: 50px;
   text-align: center;
 
@@ -119,9 +119,21 @@ div.list-group {
 }
 
 .bullseye:after {
-  content: asset_url("jquery-icons/bullseye-1.jpg");
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  content: "";
+  background: asset_url("jquery-icons/bullseye-1.jpg");
+  background-size: 100%;
+
 }
 
 .checkmark:after {
-  content: asset_url("jquery-icons/green-check-mark.jpg");
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  content: "";
+  background: asset_url("jquery-icons/green-check-mark.jpg");
+  background-size: 100%;
+
 }
