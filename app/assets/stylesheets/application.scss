@@ -115,7 +115,7 @@ div.form-group {
 }
 
 div.list-user {
-  
+
 }
 
 div.list-group {
@@ -165,5 +165,17 @@ span.arrow {
   content: "";
   background: asset_url("jquery-icons/green-check-mark.jpg");
   background-size: 100%;
+}
 
+.golf-course:after {
+  display: inline-block;
+  width: 27px;
+  height: 35px;
+  content: "";
+  background: asset_url("courses/golf-course-clip-art.jpg");
+  background-size: 100%;
+}
+
+input#course_name.form-control {
+  height: 51px;
 }
