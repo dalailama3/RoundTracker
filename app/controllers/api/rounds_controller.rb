@@ -2,7 +2,7 @@ module Api
   class RoundsController < ApiController
     before_action :require_login
     def index
-      @rounds = current_user.rounds
+      @rounds = current_user.rounds.order(date: :desc)
 
       # render json: @rounds
     end
