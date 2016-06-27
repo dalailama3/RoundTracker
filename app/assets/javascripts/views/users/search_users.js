@@ -29,7 +29,7 @@ window.RoundTracker.Views.SearchUsers = Backbone.View.extend({
       var email = model.get("email");
       if (email !== current_user_email && email.startsWith(val)) {
         var userUrl = "#users/" + model.id;
-        result.push('<li><a href=' + userUrl + '>' + email + '</a>' + '</li>');
+        result.push('<a class="list-group-item" href=' + userUrl + '>' + email + '</a>');
       }
     });
 
