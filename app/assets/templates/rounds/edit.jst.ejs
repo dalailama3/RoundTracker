@@ -6,8 +6,9 @@
 <% if (round.get("course")) { %>
   <% var parHash = round.get("course").par_hash %>
 <% } %>
-
-<ul class="errors"></ul>
+<div id="errors" class="alert alert-danger hidden" role="alert">
+  <ul class="errors"></ul>
+</div>
 <form class="edit-round">
   <label for="date">Date</label>
   <input id="date" type="date" name="round[date]" value="<%= round.escape("date") %>"></input>
@@ -52,15 +53,22 @@
     <td>Fairways</td>
 
     <% for (var hole in fairwaysHash) { %>
-      <td class="checkable" name="<%= hole %>"><%= fairwaysHash[hole] %></td>
+      <% if (fairwaysHash[hole] === "Y") { %>
+        <td id="fairway" class="checkable checkmark" name="<%= hole %>"></td>
+      <% } else { %>
+        <td id="fairway" class="checkable" name="<%= hole %>"></td>
+      <% } %>
     <% } %>
-
   </tr>
 
   <tr class="greens">
     <td>Greens</td>
     <% for (var hole in greensHash) { %>
-      <td class="checkable" name="<%= hole %>"><%= greensHash[hole] %></td>
+      <% if (greensHash[hole] === "Y") { %>
+        <td id="green" class="checkable bullseye" name="<%= hole %>"></td>
+      <% } else { %>
+        <td id="green" class="checkable" name="<%= hole %>"></td>
+      <% } %>
     <% } %>
   </tr>
 

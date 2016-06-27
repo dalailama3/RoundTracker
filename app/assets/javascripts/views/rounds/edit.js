@@ -6,8 +6,13 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
   },
 
   events: {
-    "click td.checkable": "toggleValue",
+    "click td#green": "toggleBullseye",
+    "click td#fairway": "toggleCheckmark",
     "click button#edit": "editRound"
+  },
+
+  logGreens: function () {
+    console.log(this.getGreens());
   },
 
   getScores: function () {
@@ -38,8 +43,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     var tds = $("tr.fairways").find("td.checkable");
     _.each(tds, function (td) {
       var key = $(td).attr("name");
-      var val = $(td).text();
-      fairways[key] = val;
+      $(td).hasClass("checkmark") ? fairways[key] = "Y": fairways[key] = "N";
     });
     return fairways;
 
@@ -50,22 +54,23 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     var tds = $("tr.greens").find("td.checkable");
     _.each(tds, function (td) {
       var key = $(td).attr("name");
-      var val = $(td).text();
-      greens[key] = val;
+      $(td).hasClass("bullseye") ? greens[key] = "Y": greens[key] = "N";
     });
     return greens;
   },
 
-  toggleValue: function (e) {
+  toggleBullseye: function (e) {
     var self = this;
     var clicked = e.currentTarget;
-    var val = $(clicked).text();
+    var $clicked = $(clicked);
+    $clicked.toggleClass("bullseye");
+  },
 
-    if (val === '✓') {
-      $(clicked).text('');
-    } else {
-      $(clicked).text('✓');
-    }
+  toggleCheckmark: function (e) {
+    var self = this;
+    var clicked = e.currentTarget;
+    var $clicked = $(clicked);
+    $clicked.toggleClass("checkmark");
   },
 
   editRound: function (e) {
@@ -87,6 +92,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
         $("html, body").animate({
            scrollTop: 0
        }, 200);
+        $("div#errors").removeClass("hidden");
         var errorsUl = $("ul.errors");
         errorsUl.empty();
         var errors = response.responseJSON;
