@@ -1,7 +1,7 @@
 window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
   template: JST["courses/new"],
   events: {
-    "submit form": "addCourse"
+    "click button#create-course": "addCourse"
   },
 
   addCourse: function (e) {
@@ -32,6 +32,7 @@ window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
         $("html, body").animate({
            scrollTop: 0
        }, 200);
+        $("div#errors").removeClass("hidden");
         var errorsUl = $("ul.errors");
         errorsUl.empty();
         var errors = response.responseJSON;
