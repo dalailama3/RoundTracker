@@ -6,9 +6,10 @@
 
 <form name="round-form">
 
-<label for="date">Date</label>
-<input id="date" type="date" name="round[date]"></input>
-
+<div class="input-group">
+  <span class="input-group-addon glyphicon glyphicon-calendar" id="basic-addon1"></span>
+  <input id="date" type="date" class="form-control" name="round[date]" aria-describedby="basic-addon1">
+</div>
 
 <br>
 <label for="round_course">Course</label>
@@ -66,6 +67,6 @@
 <br>
 
 <textarea name="round[note]" placeholder="Notes about your round"></textarea>
-
+<br>
 <button id="create-round" class="btn btn-primary">Submit</button>
 </form>

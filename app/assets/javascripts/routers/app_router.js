@@ -10,7 +10,8 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     "courses/:id/chart":"chartCoursePage",
     "users": "usersSearchPage",
     "users/:id": "userShowPage",
-    "users/:id/rounds/:id": "userShowRounds"
+    "users/:id/rounds/:id": "userShowRounds",
+    "users/:id/courses/:id": "viewUserChartings"
 
   },
 
@@ -107,13 +108,17 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(showUser);
   },
 
-  userShowRounds: function (id, id2) {
-    var user = RoundTracker.Collections.users.getOrFetch(id);
-    var round = RoundTracker.Collections.rounds.getOrFetch(id2);
+  userShowRounds: function (userId, roundId) {
+    var user = RoundTracker.Collections.users.getOrFetch(userId);
+    var round = RoundTracker.Collections.rounds.getOrFetch(roundId);
 
     var showUserRound = new RoundTracker.Views.ShowUserRound({model: user, round: round});
 
     this._swapView(showUserRound);
+  },
+
+  viewUserChartings: function (userId, courseId) {
+
   },
 
 
