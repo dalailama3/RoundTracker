@@ -1,10 +1,6 @@
-<h1><%= round.get("date") %></h1>
-
-
 <% if (round.get("course")) { %>
   <% var courseUrl = "#courses/" + round.get("course_id") %>
   <% var courseName = round.get("course").name %>
-  <h2><%= courseName %></h2>
   <% var parHash = round.get("course").par_hash %>
   <% var parTotal = 0 %>
   <% for (var key in parHash) { %>
@@ -12,10 +8,6 @@
   <% } %>
 
 <% } %>
-
-<h3>Score: <%= round.get("score") %></h3>
-
-
 
 <% var hash = round.get("score_hash") %>
 <% var puttsHash = round.get("putts_hash") %>
@@ -124,11 +116,6 @@
 <% if (round.escape("note").length > 0) { %>
   <textarea class="notes"><%= round.escape("note") %></textarea>
 <% } %>
-
-<br>
-
-
-<br>
 
 <a class="btn btn-primary" role="button" href="#rounds/<%= round.id%>/edit">Edit</a>
 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Delete Round</button>
