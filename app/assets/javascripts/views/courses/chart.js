@@ -1,6 +1,7 @@
 window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   template: JST["courses/chart"],
   initialize: function (options) {
+    this.listenTo(this.model, "sync", this.render)
   },
 
   events: {
