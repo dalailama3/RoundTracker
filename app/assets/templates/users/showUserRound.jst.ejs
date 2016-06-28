@@ -1,14 +1,11 @@
 <a href="#users/<%= user.id %>">Back</a>
 
 <h1><%= user.get("email") %></h1>
-<h1><%= round.get("date") %></h1>
-
 
 <% if (round.has("course")) { %>
   <% var courseUrl = "#courses/" + round.get("course_id") %>
   <% var courseName = round.get("course").name %>
   <% var courseId = round.get("course_id") %>
-  <h2><%= courseName %></h2>
   <% var parHash = round.get("course").par_hash %>
   <% var parTotal = 0 %>
   <% for (var key in parHash) { %>
@@ -16,11 +13,6 @@
   <% } %>
 
 <% } %>
-
-
-<h3>Score: <%= round.get("score") %></h3>
-
-
 
 <% var hash = round.get("score_hash") %>
 <% var puttsHash = round.get("putts_hash") %>
@@ -127,4 +119,6 @@
 
 <br>
 
-<textarea disabled class="notes"><%= round.get("note") %></textarea>
+<% if (round.escape("note").length > 0) { %>
+  <textarea disabled class="notes"><%= round.get("note") %></textarea>
+<% } %>
