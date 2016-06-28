@@ -25,7 +25,10 @@
 <% var course_user_id = course.escape("user_id") %>
 
 <% if (current_user_id === course_user_id ) { %>
-  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Delete Course</button>
+
+  <a class="btn btn-primary" role="button" href="#courses/<%= course.id %>/chart">Chart Course</a>
+
+  <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal">Delete Course</button>
 
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog">
@@ -49,7 +52,6 @@
     </div>
   </div>
 
-  <a class="btn btn-primary" role="button" href="#courses/<%= course.id %>/chart">Chart Course</a>
 <% } else { %>
   <a href="#users/<%= course_user_id %>">Back</a>
   <br>
