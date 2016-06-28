@@ -54,13 +54,10 @@ div.right {
   float: right;
 }
 
-ul.errors {
-  color: red;
-}
-
 canvas {
   border: 1px solid black;
 }
+
 
 img.charting {
   width: 50px;
@@ -68,8 +65,7 @@ img.charting {
 }
 
 div.sidebar {
-
-
+  border: 1px solid black;
 }
 
 li.viewImg {
@@ -81,8 +77,11 @@ li.viewImg :hover {
   background-color: steelblue;
 }
 
+ul.chartings {
+}
+
 li.img {
-  float: left;
+  list-style-type: none;
 }
 
 li.img :hover {
@@ -106,6 +105,17 @@ div.jquery-ui-images {
   border: 1px solid black;
   width: 150px;
   height: 150px;
+}
+
+ul.golf-icons {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+
 }
 
 .form-control {
@@ -147,6 +157,10 @@ span.arrow {
   font-size: 20px;
 }
 
+li.flagstick {
+  margin-top: 15px;
+}
+
 .flagstick:after {
   display: inline-block;
   width: 30px;
@@ -184,6 +198,51 @@ span.arrow {
   background-size: 100%;
 }
 
+.tree1:after {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  content: "";
+  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_001.png");
+  background-size: 100%;
+}
+
+.tree2:after {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  content: "";
+  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_002.png");
+  background-size: 100%;
+}
+
+.tree3:after {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  content: "";
+  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_003.png");
+  background-size: 100%;
+}
+
+
+.tree4:after {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  content: "";
+  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_004.png");
+  background-size: 100%;
+}
+
+.tree5:after {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  content: "";
+  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_005.png");
+  background-size: 100%;
+}
 input#course_name.form-control {
   height: 51px;
 }

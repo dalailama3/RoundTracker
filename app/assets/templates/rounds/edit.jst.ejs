@@ -17,12 +17,14 @@
   </div>
 
   <br>
-  <label for="round_course">Course</label>
-  <select name="round[course_id]" id="round_course">
-    <% _.each(courses.models, function (course) { %>
-      <option <%= course.id === courseId ? "selected" : null %> value="<%= course.id %>"><%= course.get("name") %></option>
-    <% }) %>
-  </select>
+  <div class="input-group">
+    <span class="input-group-addon golf-course" id="basic-addon1"></span>
+    <select name="round[course_id]" id="round_course" class="form-control" aria-describedby="basic-addon1">
+      <% _.each(courses.models, function (course) { %>
+        <option <%= course.id === courseId ? "selected" : null %> value="<%= course.id %>"><%= course.get("name") %></option>
+      <% }) %>
+    </select>
+  </div>
 
   <br>
 
@@ -83,7 +85,7 @@
 
 <br>
 
-<textarea class="notes" name="round[note]"><%= round.get("note") %></textarea>
+<textarea class="notes form-control" name="round[note]"><%= round.get("note") %></textarea>
 <br>
 
 </form>
