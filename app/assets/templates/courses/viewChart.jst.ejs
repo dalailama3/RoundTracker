@@ -1,0 +1,11 @@
+<% if (course.noHash("images_hash")) { %>
+  <p>No charted holes for this course</p>
+<% }  else { %>
+  <div class="sidebar">
+    <% for (var img in images) { %>
+      <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
+  <% } %>
+  </div>
+
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+<% } %>

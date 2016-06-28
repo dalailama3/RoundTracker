@@ -12,3 +12,4 @@ window.RoundTracker.Views.ViewChartings = Backbone.View.extend({
 
     return this;
   }
+});

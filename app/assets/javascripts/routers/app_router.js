@@ -11,7 +11,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     "users": "usersSearchPage",
     "users/:id": "userShowPage",
     "users/:id/rounds/:id": "userShowRounds",
-    "users/:id/courses/:id": "viewUserChartings"
+    "users/:id/courses/:id/view": "viewUserChartings"
 
   },
 

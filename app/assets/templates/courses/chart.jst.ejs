@@ -1,59 +1,42 @@
 <% var images = course.get("images_hash") %>
-
 <% var course_user_id = course.escape("user_id") %>
-<% if (current_user_id === course_user_id ) { %>
 
-  <h1 class="chart-title">Chart <%= course.get("name") %></h1>
+<h1 class="chart-title">Chart <%= course.get("name") %></h1>
 
-  <div class="btn-toolbar" role="toolbar">
-    <div class="tools btn-group" role="group">
-      <button class="clear btn btn-default">Clear</button>
-      <button class="eraser btn btn-default">Eraser</button>
-      <button class="marker btn btn-default">Marker</button>
-      <button class="save btn btn-default">Save</button>
-    </div>
-
-    <div class="strokes btn-group" role="group">
-      <button class="size btn btn-default">Thin</button>
-      <button class="size btn btn-default">Normal</button>
-      <button class="size btn btn-default">Thick</button>
-      <button class="size btn btn-default">Broad</button>
-    </div>
-
-    <div class="colors btn-group" role="group">
-      <button class="color btn btn-default">Green</button>
-      <button class="color btn btn-default">Brown</button>
-      <button class="color btn btn-default">Yellow</button>
-      <button class="color btn btn-default">Purple</button>
-    </div>
-  </div>
-  <div class="edit"></div>
-
-  <div class="sidebar">
-    <% for (var img in images) { %>
-      <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
-  <% } %>
+<div class="btn-toolbar" role="toolbar">
+  <div class="tools btn-group" role="group">
+    <button class="clear btn btn-default">Clear</button>
+    <button class="eraser btn btn-default">Eraser</button>
+    <button class="marker btn btn-default">Marker</button>
+    <button class="save btn btn-default">Save</button>
   </div>
 
-  <div class="jquery-ui-images">
-    <ul class="golf-icons">
-      <li class="flagstick"></li>
-    </ul>
+  <div class="strokes btn-group" role="group">
+    <button class="size btn btn-default">Thin</button>
+    <button class="size btn btn-default">Normal</button>
+    <button class="size btn btn-default">Thick</button>
+    <button class="size btn btn-default">Broad</button>
   </div>
-  <canvas id="myCanvas" width="400" height="400"></canvas>
 
+  <div class="colors btn-group" role="group">
+    <button class="color btn btn-default">Green</button>
+    <button class="color btn btn-default">Brown</button>
+    <button class="color btn btn-default">Yellow</button>
+    <button class="color btn btn-default">Purple</button>
+  </div>
+</div>
+<div class="edit"></div>
 
-
-<% } else { %>
-  <% if (course.noHash("images_hash")) { %>
-    <p>No charted holes for this course</p>
-  <% }  else { %>
-    <div class="sidebar">
-      <% for (var img in images) { %>
-        <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
-    <% } %>
-    </div>
-
-    <canvas id="myCanvas" width="400" height="400"></canvas>
-  <% } %>
+<div class="sidebar">
+  <% for (var img in images) { %>
+    <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
 <% } %>
+</div>
+
+<div class="jquery-ui-images">
+  <ul class="golf-icons">
+    <li class="flagstick"></li>
+  </ul>
+</div>
+
+<canvas id="myCanvas" width="400" height="400"></canvas>
