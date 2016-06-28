@@ -121,8 +121,9 @@
 </table>
 
 <br>
-
-<textarea class="notes"><%= round.get("note") %></textarea>
+<% if (round.escape("note").length > 0) { %>
+  <textarea class="notes"><%= round.escape("note") %></textarea>
+<% } %>
 
 <br>
 
