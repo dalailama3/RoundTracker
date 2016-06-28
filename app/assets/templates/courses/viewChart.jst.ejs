@@ -6,7 +6,9 @@
   <p><%= userEmail %> has no charted holes for <%= courseName %></p>
   <a href="#courses/<%= course.id %>">Back</a>
 <% }  else { %>
-  <h1><%= userEmail %></h1>
+
+  <h1><a href="#users/<%= user.id %>"><span class="glyphicon glyphicon-user"></span></a>
+<%= userEmail %></h1>
 
   <div class="sidebar">
     <% for (var img in images) { %>
