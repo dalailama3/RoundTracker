@@ -119,6 +119,11 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
   viewUserChartings: function (userId, courseId) {
 
+    var user = RoundTracker.Collections.users.getOrFetch(userId);
+    var course = RoundTracker.Collections.courses.getOrFetch(courseId);
+    var viewUserChartings = new RoundTracker.Views.ViewChartings({model: user, course: course});
+
+    this._swapView(viewUserChartings);
   },
 
 
