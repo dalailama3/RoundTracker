@@ -12,14 +12,17 @@
 </div>
 
 <br>
-<label for="round_course">Course</label>
-<select name="round[course_id]" id="round_course">
-  <option selected value="" disabled>Select Course--</option>
-  <% _.each(courses.models, function (course) { %>
-    <option value="<%= course.id %>"><%= course.get("name") %></option>
-  <% }) %>
 
-</select>
+<div class="input-group">
+  <span class="input-group-addon golf-course" id="basic-addon1"></span>
+  <select name="round[course_id]" id="round_course" class="form-control" aria-describedby="basic-addon1">
+    <option selected value="" disabled>Select Course--</option>
+    <% _.each(courses.models, function (course) { %>
+      <option value="<%= course.id %>"><%= course.get("name") %></option>
+    <% }) %>
+  </select>
+</div>
+<br>
 
 <a href="#courses/new">Add a Course</a>
 
@@ -66,7 +69,7 @@
 
 <br>
 
-<textarea name="round[note]" placeholder="Notes about your round"></textarea>
+<textarea class="form-control" name="round[note]" placeholder="Notes about your round"></textarea>
 <br>
 <button id="create-round" class="btn btn-primary">Submit</button>
 </form>
