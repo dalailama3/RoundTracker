@@ -65,7 +65,6 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     var indexView = new RoundTracker.Views.CoursesIndex({collection: courses});
 
 
-
     this._swapView(indexView);
   },
 
@@ -134,7 +133,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     }
     this.currentView = view;
 
-    $("div.backdrop").html(view.render().$el);
+    $("div.backdrop").html(this.currentView.render().$el);
 
   }
 });

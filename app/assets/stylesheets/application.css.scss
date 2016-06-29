@@ -17,15 +17,47 @@
 @import "bootstrap";
 @import "font-awesome";
 
-body {
+body, html {
   font-family: "FontAwesome";
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%
+}
+
+.augusta {
+  background-image: asset-url("courses/augusta-12th.jpg");
+}
+
+.andrews {
+  background-image: asset-url("courses/andrews.jpg");
 }
 
 h1 {
   font-weight:bold;
   font-size: 42px;
+  color: black;
+}
+
+.sign-in-a {
+  font-size: 16px;
+}
+
+.sign-up-a {
+  font-size: 16px;
+}
+
+.sign-up-form {
+  position: relative;
+  top: 52px;
+}
+
+h1.sign-up {
+  position: relative;
+  top: 36px;
+}
+
+span.sign-in-link {
   color: black;
 }
 
@@ -265,4 +297,15 @@ input#course_name.form-control {
 
 select#round_course.form-control {
   height: 51px;
+}
+
+header {
+  position: relative;
+  bottom: 20px;
+  height: 108px;
+}
+
+.golf-banner {
+  background-image: asset_url("header/golf-header.png");
+  background-image: 100%;
 }
