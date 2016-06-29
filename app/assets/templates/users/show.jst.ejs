@@ -1,6 +1,16 @@
-<h1><%= user.escape("email") %></h1>
+<div class="container">
+  <div class="page-header">
+    <h1><%= user.escape("email") %></h1>
+  </div>
+</div>
 
-<h3>Rounds</h3>
+
+<div class="container">
+  <div class="page-header">
+    <h2>Rounds</h2>
+  </div>
+</div>
+
 
 <div class="list-group">
   <% _.each(rounds, function (round) { %>
@@ -20,8 +30,11 @@
   <% }) %>
 </div>
 
-
-<h3>Courses</h3>
+<div class="container">
+  <div class="page-header">
+    <h2>Courses</h2>
+  </div>
+</div>
 
 <div class="list-group">
   <% _.each(courses, function (course) { %>

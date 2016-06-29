@@ -1,7 +1,11 @@
 <% var images = course.get("images_hash") %>
 <% var course_user_id = course.escape("user_id") %>
 
-<h1 class="chart-title">Chart <%= course.get("name") %></h1>
+<div class="container">
+  <div class="page-header">
+    <h1 class="chart-title">Chart <%= course.get("name") %></h1>
+  </div>
+</div>
 
 <div class="btn-toolbar" role="toolbar">
   <div class="tools btn-group" role="group">

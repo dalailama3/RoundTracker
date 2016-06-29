@@ -24,7 +24,10 @@
     </ul>
   </nav>
 <% end %>
-<header class="golf-banner"></header>
+<% if logged_in? %>
+  <header class="golf-banner"></header>
+<% end %>
+
 <html>
 <head>
   <title>RoundTracker</title>
