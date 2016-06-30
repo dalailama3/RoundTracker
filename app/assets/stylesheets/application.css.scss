@@ -106,25 +106,23 @@ div.right {
   float: right;
 }
 
+div.sidebar {
+  border: 1px solid black;
+}
+
 img.charting {
   width: 50px;
   height: 50px;
 }
 
-div.sidebar {
-  border: 1px solid black;
-}
-
-li.viewImg {
-
-}
-
-li.viewImg :hover {
-  cursor: pointer;
-  background-color: steelblue;
-}
-
 ul.chartings {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 li.img {
@@ -133,7 +131,7 @@ li.img {
 
 li.img :hover {
   cursor: pointer;
-  background-color: gray;
+  background-color: steelblue;
 }
 
 #user {
