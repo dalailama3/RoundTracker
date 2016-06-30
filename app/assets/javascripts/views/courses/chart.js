@@ -202,12 +202,19 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
     view.$("ul.golf-icons").find("li.draggable").draggable();
 
-    view.$( "#droppable" ).droppable({
+    view.$( "canvas" ).droppable({
       drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
+
+        var draggedElpos = ui.offset;
+        var canvasPos = $(this).offset();
+        var top = draggedElpos.top - canvasPos.top;
+        var left = draggedElpos.left - canvasPos.left;
+
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var image = $(ui.draggable[0]).find("img")[0];
+
+        ctx.drawImage(image, left, top, 40, 50);
       }
     });
 
