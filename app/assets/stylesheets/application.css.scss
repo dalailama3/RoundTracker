@@ -22,11 +22,18 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%
+  width: 100%;
+  // background-color: #dff0d8;
 }
 
 .augusta {
   background-image: asset-url("courses/augusta-12th.jpg");
+}
+
+.sawgrass-17 {
+  background-image: asset-url("courses/sawgrass-17.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .andrews {
@@ -35,9 +42,15 @@ body, html {
 
 h1 {
   font-weight:bold;
-  font-size: 42px;
+  font-size: 46px;
   color: black;
   text-align: center;
+  // color: #fff;
+
+}
+
+h1.sign-in {
+  text-align: left;
 }
 
 .sign-in-a {
@@ -181,6 +194,10 @@ div.list-user {
 
 }
 
+div.list-group :hover {
+  background: #dff0d8;
+}
+
 div.list-group {
   position: relative;
   width: 500px;
@@ -292,6 +309,11 @@ input#course_name.form-control {
   height: 51px;
 }
 
+input#search_users {
+  position: relative;
+  top: 1px;
+}
+
 select#round_course.form-control {
   height: 51px;
 }
@@ -309,7 +331,8 @@ header {
 div.myButton {
   width: 300px;
   height: 54px;
-  text-align: center
+  text-align: center;
+  border-radius: 5px;
 }
 
 a.button-link {

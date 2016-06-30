@@ -2,6 +2,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   template: JST["courses/chart"],
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render)
+
   },
 
   events: {
@@ -193,23 +194,22 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickColor = [];
     this.clickSize = [];
 
-    var current_user = $("div#user").text();
-    $("h1").draggable();
-    // view.activateDrag();
-    // view.$("ul.golf-icons").find("li#draggable").draggable();
-    // view.$("div.drag").draggable();
-    // view.$("li.drag").draggable();
-    //
-    // view.$( "#droppable" ).droppable({
-    //   drop: function( event, ui ) {
-    //     $( this )
-    //       .addClass( "ui-state-highlight" )
-    //       .find( "p" )
-    //         .html( "Dropped!" );
-    //   }
-    // });
+
     var content = this.template({course: this.model, current_user_id: current_user});
     this.$el.html(content);
+
+    var current_user = $("div#user").text();
+
+    view.$("ul.golf-icons").find("li.draggable").draggable();
+
+    view.$( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
 
     return this;
   }

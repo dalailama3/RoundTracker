@@ -6,29 +6,27 @@
 
 <br>
 
-<% var parHash = course.get("par_hash") %>
-
-<table class="table">
-  <tr>
-    <td>Holes</td>
-    <% for (var num = 1; num <= 18; num++) { %>
-      <td><%= num %></td>
-    <% } %>
-  </tr>
-
-  <tr>
-    <td>Par</td>
-    <% for (var hole in parHash) { %>
-      <td class="par" data-hole="<%= hole %>" contenteditable="true"><%= parHash[hole] %></td>
-    <% } %>
-  </tr>
-</table>
-<br>
-
-
 <% var course_user_id = course.escape("user_id") %>
 
 <% if (current_user_id === course_user_id ) { %>
+
+  <% var parHash = course.get("par_hash") %>
+  <table class="table">
+    <tr>
+      <td>Holes</td>
+      <% for (var num = 1; num <= 18; num++) { %>
+        <td><%= num %></td>
+      <% } %>
+    </tr>
+
+    <tr>
+      <td>Par</td>
+      <% for (var hole in parHash) { %>
+        <td class="par" data-hole="<%= hole %>" contenteditable="true"><%= parHash[hole] %></td>
+      <% } %>
+    </tr>
+  </table>
+  <br>
 
   <a class="btn btn-primary" role="button" href="#courses/<%= course.id %>/chart">Chart Course</a>
 
@@ -57,7 +55,27 @@
   </div>
 
 <% } else { %>
+  <% var parHash = course.get("par_hash") %>
+  <table class="table">
+    <tr>
+      <td>Holes</td>
+      <% for (var num = 1; num <= 18; num++) { %>
+        <td><%= num %></td>
+      <% } %>
+    </tr>
+
+    <tr>
+      <td>Par</td>
+      <% for (var hole in parHash) { %>
+        <td class="par" data-hole="<%= hole %>"><%= parHash[hole] %></td>
+      <% } %>
+    </tr>
+  </table>
+  <br>
   <a href="#users/<%= course_user_id %>">Back</a>
   <br>
-  <a class="btn btn-primary" role="button" href="#users/<%= course_user_id %>/courses/<%= course.id %>/view">See Charted Holes</a>
+  <br>
+  <div class="myButton golf-button">
+    <a class="button-link" href="#users/<%= course_user_id %>/courses/<%= course.id %>/view">See Drawings</a>
+  </div>
 <% } %>
