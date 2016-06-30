@@ -398,3 +398,23 @@ a.button-link {
   color-stop(0%, white), color-stop(15%, white), color-stop(100%, #DAD299));
   background: -moz-linear-gradient(top, white 0%, white 55%, #B0DAB9 130%);
 }
+
+div.center-piece {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}
+canvas {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}
+
+.wood-frame {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  border: 20px solid transparent;
+  padding: 10px;
+  border-image: asset_url("wood-frame.jpg") 30 round;
+}

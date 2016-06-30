@@ -152,13 +152,13 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     var mouseY = e.pageY - e.currentTarget.offsetTop;
 
     this.paint = true;
-    this.addClick(mouseX, mouseY);
+    this.addClick(mouseX -30, mouseY -30);
     this.redraw();
   },
 
   keepPainting: function (e) {
     if (this.paint) {
-      this.addClick(e.pageX - e.currentTarget.offsetLeft, e.pageY - e.currentTarget.offsetTop, true);
+      this.addClick(e.pageX - e.currentTarget.offsetLeft -30, e.pageY - e.currentTarget.offsetTop -30, true);
       this.redraw();
     }
   },
