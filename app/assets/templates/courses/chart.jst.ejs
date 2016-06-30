@@ -7,6 +7,14 @@
   </div>
 </div>
 
+<div class="sidebar gradientBoxesWithOuterShadows">
+  <ul class="chartings">
+  <% for (var img in images) { %>
+    <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
+<% } %>
+  </ul>
+</div>
+
 <div class="btn-toolbar" role="toolbar">
   <div class="tools btn-group" role="group">
     <button class="clear btn btn-default">Clear</button>
@@ -31,16 +39,8 @@
 </div>
 <div class="edit"></div>
 
-<div class="sidebar">
-  <ul class="chartings">
-  <% for (var img in images) { %>
-    <li class="img"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
-<% } %>
-  </ul>
-</div>
-
 <div class="center-piece">
-  <div class="jquery-ui-images center-pieces">
+  <div class="jquery-ui-images center-pieces gradientBoxesWithOuterShadows">
     <ul class="golf-icons">
       <!-- <li class="draggable flagstick"></li>
       <li class="draggable tree1"></li>
