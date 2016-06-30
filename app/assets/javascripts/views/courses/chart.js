@@ -200,7 +200,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
 
     var current_user = $("div#user").text();
 
-    view.$("ul.golf-icons").find("li.draggable").draggable();
+    view.$("ul.golf-icons").find("li.draggable").draggable({revert: true});
 
     view.$( "canvas" ).droppable({
       drop: function( event, ui ) {
