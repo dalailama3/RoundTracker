@@ -14,11 +14,13 @@
     </div>
   </div>
 
-  <div class="sidebar">
+  <div class="sidebar gradientBoxesWithOuterShadows">
+    <ul class="chartings">
     <% for (var img in images) { %>
-      <li class="viewImg"><%= img %><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
+      <li class="img"><p><%= img %></p><img class="charting" src="<%= images[img] %>" data-key="<%= img %>"></li>
   <% } %>
+    </ul>
   </div>
 
-  <canvas id="viewingCanvas" width="400" height="400"></canvas>
+  <canvas id="viewingCanvas" class="wood-frame" width="400" height="400"></canvas>
 <% } %>

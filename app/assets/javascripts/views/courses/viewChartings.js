@@ -3,10 +3,11 @@ window.RoundTracker.Views.ViewChartings = Backbone.View.extend({
   initialize: function (options) {
     this.course = options.course
     this.listenTo(this.course, "sync", this.render)
+    this.listenTo(this.model, "sync", this.render)
   },
 
   events: {
-    "click li.viewImg": "beginViewing"
+    "click li.img": "beginViewing"
   },
 
   beginViewing: function (e) {
