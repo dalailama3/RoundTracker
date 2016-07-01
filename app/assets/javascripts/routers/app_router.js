@@ -136,7 +136,7 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
     if ((view instanceof RoundTracker.Views.ViewChartings) || (view instanceof RoundTracker.Views.CourseChart)) {
 
       $("body").removeClass();
-      $("body").addClass("light-green");
+      $("body").addClass("andrews");
 
       $("div.backdrop").html(this.currentView.render().$el);
     // } else if (view instanceof RoundTracker.Views.ShowUser) {
