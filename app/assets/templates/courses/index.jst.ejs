@@ -6,7 +6,7 @@
 
 <div class="list-group">
   <% _.each(courses.models, function (course) { %>
-    <a class="list-group-item" href="#courses/<%= course.id %>"><%= course.escape("name") %></a>
+    <a class="list-group-item course-list" href="#courses/<%= course.id %>"><%= course.escape("name") %></a>
   <% }) %>
 </div>
 
