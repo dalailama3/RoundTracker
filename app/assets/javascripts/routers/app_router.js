@@ -127,13 +127,32 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
 
 
   _swapView: function (view) {
-    $("div.right").empty();
+
     if (this.currentView) {
       this.currentView.remove();
     }
     this.currentView = view;
 
-    $("div.backdrop").html(this.currentView.render().$el);
+    if ((view instanceof RoundTracker.Views.ViewChartings) || (view instanceof RoundTracker.Views.CourseChart)) {
+
+      $("body").removeClass();
+      $("body").addClass("light-green");
+
+      $("div.backdrop").html(this.currentView.render().$el);
+    } else if (view instanceof RoundTracker.Views.ShowUser) {
+
+      $("body").removeClass();
+      $("body").addClass("augusta");
+
+      $("div.backdrop").html(view.render().$el);
+
+    } else {
+
+      $("body").removeClass();
+      $("body").addClass("sawgrass-17");
+
+      $("div.backdrop").html(view.render().$el);
+    }
 
   }
 });
