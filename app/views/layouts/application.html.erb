@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <% if logged_in? %>
+  <header class="golf-banner"></header>
   <nav class="navbar navbar-default">
     <ul class="nav nav-pills">
       <% if logged_in? %>
@@ -12,11 +13,13 @@
         <div class="pull-right">
           <% if logged_in? %>
             <li><p class="navbar-text">Signed in as <%= current_user.email %></p></li>
-            <li><%= link_to "Sign Out", session_url, method: :delete %></li>
+            <li class="nav-signout"><%= link_to "Sign Out", session_url, method: :delete %></li>
 
           <% else %>
+          <ul class="nav nav-pills">
             <li><%= link_to "Sign In", new_session_url %></li>
             <li><%= link_to "Sign Up", new_user_url %></li>
+          <ul>
           <% end %>
 
         </div>
@@ -25,10 +28,6 @@
     </ul>
   </nav>
 <% end %>
-<% if logged_in? %>
-  <header class="golf-banner"></header>
-<% end %>
-
 <html>
 <head>
   <title>RoundTracker</title>

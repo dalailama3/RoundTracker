@@ -50,7 +50,10 @@ h1 {
   color: black;
   text-align: center;
   // color: #fff;
+}
 
+.nice-title {
+  color: #f5f5f5;
 }
 
 h1.sign-in {
@@ -197,11 +200,6 @@ div.form-group {
   width: 400px;
 }
 
-.pull-right li {
-  float: left;
-  margin-left: 8px;
-}
-
 div.list-user {
 
 }
@@ -213,6 +211,10 @@ div.list-group :hover {
 div.list-group {
   position: relative;
   width: 500px;
+}
+
+a.list-group-item {
+  // background-color: #faebd7;
 }
 
 div.icons-container {
@@ -272,51 +274,6 @@ li.flagstick {
   background-size: 100%;
 }
 
-.tree1:after {
-  display: inline-block;
-  width: 40px;
-  height: 50px;
-  content: "";
-  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_001.png");
-  background-size: 100%;
-}
-
-.tree2:after {
-  display: inline-block;
-  width: 40px;
-  height: 50px;
-  content: "";
-  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_002.png");
-  background-size: 100%;
-}
-
-.tree3:after {
-  display: inline-block;
-  width: 40px;
-  height: 50px;
-  content: "";
-  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_003.png");
-  background-size: 100%;
-}
-
-
-.tree4:after {
-  display: inline-block;
-  width: 40px;
-  height: 50px;
-  content: "";
-  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_004.png");
-  background-size: 100%;
-}
-
-.tree5:after {
-  display: inline-block;
-  width: 40px;
-  height: 50px;
-  content: "";
-  background: asset_url("jquery-icons/FreeArt_Trees1/obj_trees1_005.png");
-  background-size: 100%;
-}
 
 // li.draggable img {
 //   width: 40px;
@@ -341,9 +298,48 @@ select#round_course.form-control {
 }
 
 header {
-  position: relative;
-  bottom: 20px;
   height: 108px;
+}
+
+.navbar-default {
+  background: transparent;
+  font-color: #f5f5f5;
+  position: relative;
+  bottom: 95px;
+  border: none;
+
+}
+
+.nav-pills > li > a {
+  color: white;
+  font-size: 18px;
+
+  // box-shadow: 2 0 0 2px;
+}
+
+.nav-pills > li > a:hover {
+  background-color: #0c3a0d;
+}
+
+p.navbar-text {
+  color: white;
+  font-size: 14px;
+}
+
+.nav-signout a {
+  color: #f5f5f5;
+  position: relative;
+  top: 13px;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.pull-right li {
+  float: left;
+}
+
+.navbar-default .navbar-text {
+  color: #f5f5f5;
 }
 
 .golf-banner {
@@ -410,6 +406,7 @@ div.center-piece {
   -moz-box-sizing: content-box;
 }
 canvas {
+  background: white;
   display: block;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
