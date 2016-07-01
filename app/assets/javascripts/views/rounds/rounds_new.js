@@ -5,7 +5,7 @@ window.RoundTracker.Views.RoundsNew = Backbone.View.extend({
     this.listenTo(this.courses, "sync", this.render)
   },
   events: {
-    "click a#create-round": "createRound",
+    "click div.myButton": "createRound",
     "click td#green": "toggleBullseye",
     "click td#fairway": "toggleCheckmark"
   },

@@ -40,7 +40,7 @@ p.chart {
 
 .sawgrass-17 {
   background-image: asset-url("courses/sawgrass-17.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
 }
 
@@ -95,6 +95,11 @@ table input {
   text-align: center;
 }
 
+.table {
+  background-color: #f5f5f5;
+  box-shadow: 8px 6px 10px;
+}
+
 td, th {
   border: 1px solid #CCC;
   height: 35px;
@@ -105,8 +110,9 @@ td, th {
 }
 
 th {
-background: #32CD32; /* Light grey background */
-font-weight: bold; /* Make sure they're bold */
+background: #0c3a0d;
+color: white;
+font-weight: bold;
 }
 
 div.backdrop {
@@ -297,8 +303,14 @@ input#search_users {
   top: 1px;
 }
 
+input#date.form-control {
+  position: relative;
+  top: 1px;
+}
+
 select#round_course.form-control {
   height: 51px;
+  border-radius: 0px;
 }
 
 header {
@@ -404,17 +416,9 @@ a.button-link {
   background: -moz-linear-gradient(top, white 0%, white 55%, #B0DAB9 130%);
 }
 
-div.center-piece {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
-}
 canvas {
   background: white;
   display: block;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
 }
 
 #viewingCanvas {
@@ -425,9 +429,6 @@ canvas {
 }
 
 .wood-frame {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
   border: 20px solid transparent;
   padding: 10px;
   border-image: asset_url("wood-frame.jpg") 30 round;

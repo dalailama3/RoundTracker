@@ -11,10 +11,6 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
     "click div.myButton": "editRound"
   },
 
-  logGreens: function () {
-    console.log(this.getGreens());
-  },
-
   getScores: function () {
     scores = {};
     var tds = $("tr.scores").find("td.score");
