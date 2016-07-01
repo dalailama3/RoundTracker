@@ -329,13 +329,14 @@ header {
 .nav-pills > li > a {
   color: white;
   font-size: 18px;
-
-  // box-shadow: 2 0 0 2px;
 }
 
-.nav-pills > li > a:hover {
-  background-color: #0c3a0d;
-}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: #0c3a0d;
+  }
 
 p.navbar-text {
   color: white;
