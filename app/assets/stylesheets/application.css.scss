@@ -228,9 +228,11 @@ a.list-group-item {
 }
 
 div.icons-container {
+  display: flex;
   position: absolute;
   left: 400px;
   top: 22px;
+  justify-content: center;
 }
 
 span.score {
