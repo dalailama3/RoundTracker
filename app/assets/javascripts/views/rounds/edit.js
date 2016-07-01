@@ -8,7 +8,7 @@ window.RoundTracker.Views.RoundEdit = Backbone.View.extend({
   events: {
     "click td#green": "toggleBullseye",
     "click td#fairway": "toggleCheckmark",
-    "click button#edit": "editRound"
+    "click div.myButton": "editRound"
   },
 
   logGreens: function () {

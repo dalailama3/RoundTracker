@@ -139,12 +139,12 @@ window.RoundTracker.Routers.AppRouter = Backbone.Router.extend({
       $("body").addClass("light-green");
 
       $("div.backdrop").html(this.currentView.render().$el);
-    } else if (view instanceof RoundTracker.Views.ShowUser) {
-
-      $("body").removeClass();
-      $("body").addClass("augusta");
-
-      $("div.backdrop").html(view.render().$el);
+    // } else if (view instanceof RoundTracker.Views.ShowUser) {
+    //
+    //   $("body").removeClass();
+    //   $("body").addClass("augusta");
+    //
+    //   $("div.backdrop").html(view.render().$el);
 
     } else {
 
