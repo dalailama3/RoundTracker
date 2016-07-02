@@ -25,15 +25,15 @@
 <br> -->
 
 
-<div class="buttons-signin btn-group" role="group">
-  <a class="btn btn-primary" href="<%= new_user_url %>" role="button">Don't have an account?</a>
-  <a class="btn btn-primary" href="#">Forget your password?</a>
+<div class="btn-group signin-buttons" role="group">
+  <a class="btn btn-primary btn-sm" href="<%= new_user_url %>" role="button">Don't have an account?</a>
+  <a class="btn btn-primary btn-sm" href="#">Forget your password?</a>
   <form action="<%= session_url %>" method="POST">
     <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>">
     <input type="hidden" name="user[email]" class="form-control" value="guest@guestemail.com">
     <input type="hidden" name="user[password]" class="form-control" value="guestguest">
 
-    <button type="submit" class="btn btn-block btn-success guest-signin">Sign in as Guest</button>
+    <button type="submit" class="btn btn-primary btn-sm guest-signin">Sign in as Guest</button>
   </form>
 
 
