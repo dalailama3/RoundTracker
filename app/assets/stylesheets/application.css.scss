@@ -269,12 +269,18 @@ li.flagstick {
   margin-top: 15px;
 }
 
+span.flagstick {
+  position: relative;
+  right: 11px;
+  bottom: 10px;
+}
+
 .flagstick:after {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 48px;
   content: "";
-  background: asset_url("jquery-icons/red-golf-flag");
+  background: asset_url("jquery-icons/red-flag.png");
   background-size: 100%;
 }
 
