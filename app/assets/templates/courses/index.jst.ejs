@@ -6,7 +6,12 @@
 
 <div class="list-group">
   <% _.each(courses.models, function (course) { %>
-    <a class="list-group-item course-list" href="#courses/<%= course.id %>"><%= course.escape("name") %></a>
+    <a class="list-group-item nice-list" href="#courses/<%= course.id %>"><%= course.escape("name") %></a>
+    <div class="icons-container">
+      <span class="pull-right">
+        <span class="arrow glyphicon glyphicon-chevron-right"></span>
+      </span>
+    </div>
   <% }) %>
 </div>
 

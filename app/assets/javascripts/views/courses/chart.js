@@ -213,7 +213,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
         var ctx = canvas.getContext("2d");
         var image = $(ui.draggable[0]).find("img")[0];
 
-        ctx.drawImage(image, left - 30, top - 30, 40, 50);
+        ctx.drawImage(image, left - 25, top - 25, 40, 50);
       }
     });
 

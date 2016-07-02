@@ -31,7 +31,7 @@ h4 {
   font-weight: 600;
 }
 
-.course-list {
+.nice-list {
   font-size: 18px;
   font-weight: 600;
 }
@@ -204,7 +204,7 @@ ul.golf-icons {
   display: flex;
 
   -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 canvas {
@@ -244,6 +244,15 @@ div.icons-container {
   top: 22px;
   justify-content: center;
 }
+//
+// div.icons-container-arrow {
+//   display: flex;
+//   position: absolute;
+//   left: 456px;
+//   top: 6px;
+//   justify-content: center;
+// }
+
 
 span.score {
   font-size: 25px;
@@ -306,6 +315,7 @@ li.flagstick {
 img.resize {
   width: 40px;
   height: 50px;
+  margin: 5px;
 }
 input#course_name.form-control {
   height: 51px;
