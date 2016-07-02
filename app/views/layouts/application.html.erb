@@ -3,30 +3,21 @@
   <header class="golf-banner"></header>
   <nav class="navbar navbar-default">
     <ul class="nav nav-pills">
-      <% if logged_in? %>
-        <li><a href="#rounds">Rounds</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#users">Find Friends</a></li>
-      <% end %>
 
-      <div class="nav-right">
-        <div class="pull-right">
-          <% if logged_in? %>
-            <li><p class="navbar-text">Signed in as <%= current_user.email %></p></li>
-            <li class="nav-signout"><%= link_to "Sign Out", session_url, method: :delete %></li>
+      <li><a href="#rounds">Rounds</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#users">Find Friends</a></li>
 
-          <% else %>
-          <ul class="nav nav-pills">
-            <li><%= link_to "Sign In", new_session_url %></li>
-            <li><%= link_to "Sign Up", new_user_url %></li>
-          <ul>
-          <% end %>
 
-        </div>
+    <div class="nav-right">
+      <div class="pull-right">
+        <li><p class="navbar-text">Signed in as <%= current_user.email %></p></li>
+        <li class="nav-signout"><%= link_to "Sign Out", session_url, method: :delete %></li>
       </div>
+    </div>
 
     </ul>
-  </nav>
+  </nav>  
 <% end %>
 <html>
 <head>

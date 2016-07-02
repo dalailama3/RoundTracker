@@ -27,7 +27,9 @@ body, html {
 }
 
 .jumbotron {
-  background-color: #dff0d8;
+  // background-color: #dff0d8;
+  margin: 40px;
+  opacity: .9;
 }
 
 .hidden {
@@ -38,8 +40,17 @@ body, html {
   display: flex;
   margin-top: 30px;
   margin-left: none;
-
 }
+
+.welcome-buttons {
+  margin: 5px;
+}
+
+.welcome-group {
+  width: 210px;
+  margin: auto;
+}
+
 .btn-sm, .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 14px;
@@ -112,10 +123,6 @@ h1.sign-in {
 h1.sign-up {
   position: relative;
   top: 36px;
-}
-
-span.sign-in-link {
-  color: black;
 }
 
 div.drag {
@@ -382,6 +389,11 @@ header {
 
 .nav-pills > li > a {
   color: white;
+  font-size: 18px;
+}
+
+.nav-pills > li.welcome > a {
+  color: black;
   font-size: 18px;
 }
 
