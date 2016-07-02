@@ -237,6 +237,10 @@ a.list-group-item {
   color: #333333;
 }
 
+a.list-group-item:hover {
+  color: #333333;
+}
+
 div.icons-container {
   display: flex;
   position: absolute;
@@ -244,14 +248,13 @@ div.icons-container {
   top: 22px;
   justify-content: center;
 }
-//
-// div.icons-container-arrow {
-//   display: flex;
-//   position: absolute;
-//   left: 456px;
-//   top: 6px;
-//   justify-content: center;
-// }
+
+.icons-container-arrow {
+  position: absolute;
+  left: 456px;
+  top: 6px;
+  justify-content: center;
+}
 
 
 span.score {
