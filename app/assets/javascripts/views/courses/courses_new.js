@@ -1,7 +1,7 @@
 window.RoundTracker.Views.CoursesNew = Backbone.View.extend({
   template: JST["courses/new"],
   events: {
-    "click a#create-course": "addCourse"
+    "click div.myButton": "addCourse"
   },
 
   addCourse: function (e) {
