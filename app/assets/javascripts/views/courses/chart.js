@@ -216,6 +216,20 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
         ctx.drawImage(image, left - 25, top - 25, 40, 50);
       }
     });
+    $(".colors > .color").click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    $(".strokes > .size").click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    $(".tools > .btn").click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+
+
+
 
     return this;
   }
