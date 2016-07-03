@@ -3,6 +3,13 @@ window.RoundTracker.Views.RoundsIndex = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.collection, "sync remove", this.render)
   },
+  events: {
+    "click div.myButton": "roundsNew"
+  },
+
+  roundsNew: function () {
+    Backbone.history.navigate("#rounds/new", { trigger: true })
+  },
 
 
   render: function () {
