@@ -9,9 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require jquery-ui
+ *= require spectrum.css
  *= require_self
  *= require_tree .
  */
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

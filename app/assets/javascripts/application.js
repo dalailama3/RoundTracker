@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require spectrum.js
 //= require round_tracker
 //= require_tree ../images
 //= require_tree ../templates

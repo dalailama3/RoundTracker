@@ -10,7 +10,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     "mouseleave canvas": "stopPainting",
     "mouseup canvas": "stopPainting",
     "click button.clear": "clearCanvas",
-    "click button.color": "changeColor",
     "click button.size": "changeSize",
     "click button.eraser": "startErasing",
     "click button.marker": "useMarker",
@@ -100,13 +99,6 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
         self.curSize = 10;
         break;
     }
-  },
-
-  changeColor: function (e) {
-    var color = $(e.currentTarget).text();
-    var func = 'this.color' + color;
-
-    this.curColor = eval(func);
   },
 
   clearCanvas: function (e) {
@@ -228,8 +220,13 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
       $(this).addClass("active").siblings().removeClass("active");
     });
 
-
-
+    $(".basic").spectrum({
+    color: "#659b41",
+    change: function (color) {
+        var newColor = color.toHexString();
+        view.curColor = newColor;
+    }
+});
 
     return this;
   }
