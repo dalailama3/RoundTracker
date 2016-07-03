@@ -21,11 +21,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickX: [],
   clickY: [],
   clickDrag: [],
-
-  colorPurple: "#cb3594",
-  colorGreen: "#659b41",
-  colorYellow: "#ffcf33",
-  colorBrown: "#986928",
+  
   curColor: "#659b41",
   clickColor: [],
 
@@ -221,11 +217,14 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     });
 
     $(".basic").spectrum({
-    color: "#659b41",
-    change: function (color) {
-        var newColor = color.toHexString();
-        view.curColor = newColor;
-    }
+      color: "#659b41",
+      showInput: true,
+      showInitial: true,
+      preferredFormat: "hex",
+      change: function (color) {
+          var newColor = color.toHexString();
+          view.curColor = newColor;
+      }
 });
 
     return this;
