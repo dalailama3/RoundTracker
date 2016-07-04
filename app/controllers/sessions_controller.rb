@@ -4,16 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:user][:email])
+    @user = User.find_by_credentials(params[:user])
 
-    if !user.nil?
-      if log_in!
-        redirect_to "#rounds"
-      else
-        flash.now[:danger] = "Invalid email/password combination"
-        render :new
-      end
-
+    if @user
+      log_in!(@user)
+      redirect_to "#rounds"
     else
       flash.now[:danger] = "Invalid email/password combination"
       render :new
