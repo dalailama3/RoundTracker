@@ -1,6 +1,6 @@
 <a href="#users/<%= user.id %>">Back</a>
 
-<h1><%= user.get("email") %></h1>
+<h1 class="nice-title"><%= user.get("email") %></h1>
 
 <% if (round.has("course")) { %>
   <% var courseUrl = "#courses/" + round.get("course_id") %>
