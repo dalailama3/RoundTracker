@@ -3,7 +3,7 @@
 <% var images = course.get("images_hash") %>
 
 <% if (course.noHash("images_hash")) { %>
-  <p><%= userEmail %> has no charted holes for <%= courseName %></p>
+  <p class="no-chartings"><%= userEmail %> has no charted holes for <%= courseName %></p>
   <a href="#courses/<%= course.id %>">Back</a>
 <% }  else { %>
 
