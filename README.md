@@ -1,6 +1,6 @@
 # Round Tracker
 
-[live](www.roundtracker.io)
+[live](roundtracker.io)
 
 For my capstone project, I wanted to make something that I would actually use myself so I decided on a golf app which I could use to keep track of my rounds and the courses I've played.  I hope it can be used as a tool to help golfers see where they're dropping shots and improve their scores.
 
@@ -17,3 +17,5 @@ Rails, Backbone, PostgreSQL, jQuery, jQuery-ui, HTML5 Canvas
 bcrypt-ruby, jbuilder, spectrum colorpicker, bootstrap-sass, jquery.serializejson
 
 ![Rounds Index](./screenshots/rounds-index.png)
+
+![Round Edit](./screenshots/round-edit.png)
