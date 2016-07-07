@@ -16,6 +16,10 @@ Rails, Backbone, PostgreSQL, jQuery, jQuery-ui, HTML5 Canvas
 
 bcrypt-ruby, jbuilder, spectrum colorpicker, bootstrap-sass, jquery.serializejson
 
+# Screenshots
+
 ![Rounds Index](./screenshots/rounds-index.png)
 
 ![Round Edit](./screenshots/round-edit.png)
+
+![Course Chart](./screenshots/course-chart.png)

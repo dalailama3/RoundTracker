@@ -1,7 +1,7 @@
 <a href="#users/<%= user.id %>">Back</a>
 
-<h1 class="nice-title"><%= user.get("email") %></h1>
-
+<h1 class="nice-title"><span class="glyphicon glyphicon-user"></span> <%= user.get("email") %></h1>
+<br>
 <% if (round.has("course")) { %>
   <% var courseUrl = "#courses/" + round.get("course_id") %>
   <% var courseName = round.get("course").name %>
@@ -120,5 +120,5 @@
 <br>
 
 <% if (round.escape("note").length > 0) { %>
-  <textarea disabled class="notes"><%= round.get("note") %></textarea>
+  <textarea class="form-control" disabled class="notes"><%= round.get("note") %></textarea>
 <% } %>
