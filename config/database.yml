@@ -21,3 +21,9 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+
+production:
+  adapter: postgresql
+  database: round_tracker
+  timeout: 5000
+  pool: 5
