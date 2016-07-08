@@ -2,6 +2,7 @@ RoundTracker::Application.routes.draw do
 
   root to: 'static_pages#root'
   get '/users/forgot-password', to: 'users#forgot_password'
+  post '/users/emailer', to: 'users#emailer'
 
   resources :users, only: [:index, :new, :create]
   resources :friendships, only: [:create, :destroy]

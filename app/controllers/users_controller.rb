@@ -19,7 +19,16 @@ class UsersController < ApplicationController
   end
 
   def emailer
+    @user = User.find_by_email(params[:user][:email])
 
+    random_password = Array.new(10).map { (65 + rand(58)).chr }.join
+    @user.password = random_password
+
+    if @user.save
+      UserMailer.reset_password(@user.email, random_password)
+      flash[:notice] = "Email has been sent";
+      redirect_to new_session_url
+    end
   end
 
   private
