@@ -12,7 +12,13 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
 
+  def forgot_password
+    render
+  end
+
+  def emailer
 
   end
 
