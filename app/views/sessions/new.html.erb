@@ -23,7 +23,7 @@
 
 <div class="btn-group signin-buttons" role="group">
   <a class="btn btn-primary btn-sm" href="<%= new_user_url %>" role="button">Don't have an account?</a>
-  <a class="btn btn-primary btn-sm" href="#">Forgot your password?</a>
+  <a class="btn btn-primary btn-sm" href="/users/forgot-password">Forgot your password?</a>
   <form action="<%= session_url %>" method="POST">
     <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>">
     <input type="hidden" name="user[email]" class="form-control" value="guest@guestemail.com">

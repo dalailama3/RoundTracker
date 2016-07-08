@@ -30,3 +30,5 @@ bcrypt-ruby, jbuilder, spectrum colorpicker, bootstrap-sass, jquery.serializejso
 2.  Display graph of round scores over time
 3.  Allow users to comment on other users' rounds
 4.  Add a likes/favorites system
+5.  Fix glitches caused by using back button
+6.  Add more draggable images in chart course page
