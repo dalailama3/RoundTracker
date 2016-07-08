@@ -64,13 +64,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'www.roundtracker.io' }
+  config.action_mailer.default_url_options = { :host => 'roundtracker.herokuapp.com' }
   config.action_mailer.smtp_settings = {
   :address              => 'smtp.gmail.com',
-  :port                 => 587,
+  :port                 => '465',
   :domain               => 'gmail.com',
-  :user_name            => 'EMAIL_ADDRESS@gmail.com',
-  :password             => 'pass',
+  :user_name            => 'johngclark36@gmail.com',
+  :password             => 'newBeginning26',
   :authentication       => :plain,
   :enable_starttls_auto => true,
   :openssl_verify_mode  => 'none'
