@@ -21,7 +21,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
   clickX: [],
   clickY: [],
   clickDrag: [],
-  
+
   curColor: "#659b41",
   clickColor: [],
 
@@ -107,6 +107,7 @@ window.RoundTracker.Views.CourseChart = Backbone.View.extend({
     this.clickDrag = [];
     this.clickColor = [];
     this.clickSize = [];
+    this.curTool = "marker";
   },
 
   stopPainting: function (e) {
