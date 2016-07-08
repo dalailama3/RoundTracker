@@ -23,3 +23,10 @@ bcrypt-ruby, jbuilder, spectrum colorpicker, bootstrap-sass, jquery.serializejso
 ![Round Edit](./screenshots/round-edit.png)
 
 ![Course Chart](./screenshots/course-chart.png)
+
+#  To-Dos
+
+1.  Calculate stats such as handicap and scoring average
+2.  Display graph of round scores over time
+3.  Allow users to comment on other users' rounds
+4.  Add a likes/favorites system
