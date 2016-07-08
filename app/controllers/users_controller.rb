@@ -25,9 +25,10 @@ class UsersController < ApplicationController
     @user.password = random_password
 
     if @user.save
-      UserMailer.reset_password(@user.email, random_password)
-      flash[:notice] = "Email has been sent";
+      UserMailer.reset_password(@user.email, random_password).deliver
+  
       redirect_to new_session_url
+      flash[:notice] = "Email has been sent"
     end
   end
 
